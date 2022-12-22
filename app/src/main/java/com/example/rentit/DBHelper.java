@@ -22,7 +22,9 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table users(username TEXT primary key, password TEXT)");
+
+        db.execSQL("create table users(username TEXT primary key , password TEXT , email TEXT, address TEXT)");
+
 
     }
 
@@ -33,15 +35,17 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     // Registration Part
-    public Boolean insertData(String username, String pass,String repass , String email,String address) {
+
+    public Boolean insertData(String username, String pass, String email,String address) {
+
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
         values.put("username" , username);
         values.put("password",pass);
-        values.put("password",repass);
-        values.put("password",email);
-        values.put("password",address);
+        values.put("email",email);
+        values.put("address",address);
+
 
         long result = db.insert("users",null,values);
         if(result == -1) return false ;
@@ -55,25 +59,31 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db  = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("select * from users where username=?", new String[] {username});
 
-        if(cursor.getCount() >0){
+
+        if(cursor.getCount() > 0){
+
             return true;
         }
         else return false;
     }
     // checks duplicate username in registration
 
-    // login part check username and database
+
+    // login part check username passs and database
     public Boolean checkusernamepassword(String username,String pass)
     {
         SQLiteDatabase db  = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("select * from users where username=?",new String[]{username});
+        Cursor cursor = db.rawQuery("select * from users where username=? and password=?",new String[]{username,pass});
 
-        if(cursor.getCount() >0){
+        if(cursor.getCount() > 0){
+
             return true;
         }
         else return false;
     }
-    // login part check username and database
+
+    // login part check username pass and database
+
 
 
 }

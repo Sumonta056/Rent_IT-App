@@ -88,7 +88,9 @@ public class registration extends AppCompatActivity {
                         // check duplicate user name
                         if (!checkuser) {
                             // insert all data to database
-                            Boolean insert = DB.insertData(user, password, pasRe, emails, adr);
+
+                            Boolean insert = DB.insertData(user, password, emails, adr);
+
                             if (insert) {
                                 Toast.makeText(registration.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getApplicationContext(), login.class);
