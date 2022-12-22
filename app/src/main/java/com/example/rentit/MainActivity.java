@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-        // Button
+        // next Button
         move = findViewById(R.id.button2);
         move.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Button
+        // next Button
 
 
 

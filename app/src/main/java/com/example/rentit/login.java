@@ -4,10 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 
@@ -19,6 +22,11 @@ public class login extends AppCompatActivity {
     private MaterialButton move2;
     private MaterialButton move3;
     // Button
+
+    // Database
+    DBHelper DB;
+    EditText username ,pass ;
+    // Database
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +41,7 @@ public class login extends AppCompatActivity {
 
         setContentView(R.layout.activity_login);
 
-
-        // Button
+        // back Button
         move1 = findViewById(R.id.but2);
         move1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,29 +50,57 @@ public class login extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        // Button
+        // back Button
 
-        // Button
+        // login Button starts
+        DB = new DBHelper(this);
+        // search for id's
+        username = findViewById(R.id.username);
+        pass = findViewById(R.id.pass);
         move2 = findViewById(R.id.login);
+
         move2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(login.this , menu.class );
-                startActivity(intent);
+
+                  String user = username.getText().toString();
+                  String password = pass.getText().toString();
+
+                  // if pass and user box empty : show a message to fill all box
+                  if(TextUtils.isEmpty(user) || TextUtils.isEmpty(password))
+                      Toast.makeText(login.this, "Please! Fill Up All Field", Toast.LENGTH_SHORT).show();
+
+                  else
+                  {
+                      // checking username and pass with database
+                      Boolean checkuserpass = DB.checkusernamepassword(user,password);
+                      if(checkuserpass == true)// if user pass matches
+                      {
+                          Toast.makeText(login.this, "Login Successful", Toast.LENGTH_SHORT).show(); // login successful
+                          Intent intent = new Intent(getApplicationContext(), menu.class); // go to meny screen
+                          startActivity(intent);
+                      }
+                      else // not matches
+                      {
+                          Toast.makeText(login.this, "Login Failed", Toast.LENGTH_SHORT).show(); // login failed
+                          Intent intent = new Intent(getApplicationContext(), login.class); // restart screem
+                          startActivity(intent);
+                      }
+                  }
             }
         });
-        // Button
+        // login Button ends
 
 
-        // Button
+        // Registration Button Starts
         move3 = findViewById(R.id.registration);
         move3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(login.this , registration.class );
-                startActivity(intent);
+                startActivity(intent); // go to registration screen
             }
         });
-        // Button
+        // Registration Button Ends
     }
 }
