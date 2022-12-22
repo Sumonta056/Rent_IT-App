@@ -11,7 +11,6 @@ import android.view.WindowManager;
 // hide the title bar
 
 // Button
-import android.widget.Button;
 import android.widget.ImageButton;
 // Button
 
@@ -36,17 +35,17 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-        // Button
+        // next Button
         move = findViewById(R.id.button2);
         move.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this , Home.class );
+                Intent intent = new Intent(MainActivity.this , login.class );
                 startActivity(intent);
             }
         });
 
-        // Button
+        // next Button
 
 
 

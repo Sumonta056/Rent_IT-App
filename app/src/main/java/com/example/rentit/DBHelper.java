@@ -22,7 +22,9 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+
         db.execSQL("create table users(username TEXT primary key , password TEXT , email TEXT, address TEXT)");
+
 
     }
 
@@ -33,7 +35,9 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     // Registration Part
+
     public Boolean insertData(String username, String pass, String email,String address) {
+
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
@@ -41,6 +45,7 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put("password",pass);
         values.put("email",email);
         values.put("address",address);
+
 
         long result = db.insert("users",null,values);
         if(result == -1) return false ;
@@ -54,12 +59,15 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db  = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("select * from users where username=?", new String[] {username});
 
+
         if(cursor.getCount() > 0){
+
             return true;
         }
         else return false;
     }
     // checks duplicate username in registration
+
 
     // login part check username passs and database
     public Boolean checkusernamepassword(String username,String pass)
@@ -68,11 +76,14 @@ public class DBHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery("select * from users where username=? and password=?",new String[]{username,pass});
 
         if(cursor.getCount() > 0){
+
             return true;
         }
         else return false;
     }
+
     // login part check username pass and database
+
 
 
 }
