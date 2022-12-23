@@ -28,7 +28,7 @@
         app:layout_constraintVertical_bias="0.041" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/materialButton5"
+        android:id="@+id/sell"
         android:layout_width="357dp"
         android:layout_height="70dp"
         android:layout_margin="70dp"
