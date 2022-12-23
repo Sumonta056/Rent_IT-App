@@ -25,8 +25,8 @@
         android:id="@+id/username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#50ffffff"
-        android:hint="Username"
+        android:background="@drawable/back"
+        android:hint="Email Address"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:layout_margin="20dp"
@@ -42,7 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:background="#50ffffff"
+        android:background="@drawable/back"
         android:drawableLeft="@drawable/ic_baseline_lock_24"
         android:drawablePadding="10dp"
         android:hint="Password"
@@ -62,7 +62,7 @@
         android:layout_margin="20dp"
         android:layout_marginTop="20dp"
         android:backgroundTint="@color/black"
-
+        android:textColor="@color/white"
 
         android:text="LOGIN"
         app:layout_constraintEnd_toEndOf="parent"
@@ -77,7 +77,7 @@
         android:layout_margin="20dp"
         android:layout_marginTop="20dp"
         android:backgroundTint="@color/black"
-
+        android:textColor="@color/white"
 
         android:text="Registration"
         app:layout_constraintEnd_toEndOf="parent"

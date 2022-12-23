@@ -1,5 +1,6 @@
 package com.example.rentit;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -12,7 +13,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Objects;
 
@@ -24,7 +29,7 @@ public class login extends AppCompatActivity {
     // Button
 
     // Database
-    DBHelper DB;
+    FirebaseAuth auth;
     EditText username ,pass ;
     // Database
 
@@ -53,7 +58,7 @@ public class login extends AppCompatActivity {
         // back Button
 
         // login Button starts
-        DB = new DBHelper(this);
+        auth = FirebaseAuth.getInstance();
         // search for id's
         username = findViewById(R.id.username);
         pass = findViewById(R.id.pass);
@@ -72,20 +77,21 @@ public class login extends AppCompatActivity {
 
                   else
                   {
-                      // checking username and pass with database
-                      Boolean checkuserpass = DB.checkusernamepassword(user,password);
-                      if(checkuserpass == true)// if user pass matches
-                      {
-                          Toast.makeText(login.this, "Login Successful", Toast.LENGTH_SHORT).show(); // login successful
-                          Intent intent = new Intent(getApplicationContext(), menu.class); // go to meny screen
-                          startActivity(intent);
-                      }
-                      else // not matches
-                      {
-                          Toast.makeText(login.this, "Login Failed", Toast.LENGTH_SHORT).show(); // login failed
-                          Intent intent = new Intent(getApplicationContext(), login.class); // restart screem
-                          startActivity(intent);
-                      }
+                      auth.signInWithEmailAndPassword(user,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                          @Override
+                          public void onComplete(@NonNull Task<AuthResult> task) {
+                              if(task.isSuccessful())
+                              {
+                                  Toast.makeText(login.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                                  Intent intent = new Intent(login.this, menu.class);
+                                  startActivity(intent);
+                              }
+                              else
+                              {
+                                  Toast.makeText(login.this, "Login Failed", Toast.LENGTH_SHORT).show();
+                              }
+                          }
+                      });
                   }
             }
         });

@@ -1,5 +1,6 @@
 package com.example.rentit;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -12,7 +13,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.rentit.models.UserModel;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Objects;
 
@@ -25,12 +32,14 @@ public class registration extends AppCompatActivity {
     // Button
 
     // database
-    DBHelper DB;
+    FirebaseAuth auth;
+    FirebaseDatabase database;
     EditText username ;
     EditText pass;
     EditText email;
     EditText address;
     EditText repass;
+    EditText ph;
     // database
 
     @Override
@@ -57,13 +66,14 @@ public class registration extends AppCompatActivity {
         });
         // back Button end
 
-        // registration Button starts
-        DB = new DBHelper(this);
+        auth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
         username = findViewById(R.id.username);
         pass = findViewById(R.id.pass);
         email = findViewById(R.id.email);
         address = findViewById(R.id.address);
         repass = findViewById(R.id.passRe);
+        ph = findViewById(R.id.phone);
         move2 = findViewById(R.id.reg);
 
         move2.setOnClickListener(new View.OnClickListener() {
@@ -75,35 +85,37 @@ public class registration extends AppCompatActivity {
                 String emails = email.getText().toString();
                 String adr = address.getText().toString();
                 String pasRe = repass.getText().toString();
+                String phone = ph.getText().toString();
 
                 // check all info given or not
-                if(TextUtils.isEmpty(user) || TextUtils.isEmpty(password)|| TextUtils.isEmpty(pasRe)|| TextUtils.isEmpty(emails)||TextUtils.isEmpty(adr))
+                if(TextUtils.isEmpty(user) || TextUtils.isEmpty(password)|| TextUtils.isEmpty(pasRe)|| TextUtils.isEmpty(emails)||TextUtils.isEmpty(adr)|TextUtils.isEmpty(phone))
                     Toast.makeText(registration.this, "Please! Fill Up All Information", Toast.LENGTH_SHORT).show();
 
                 else
                 {
                     // check both pass and repass same or not
                     if(password.equals(pasRe)) {
-                        Boolean checkuser = DB.checkusername(user);
-                        // check duplicate user name
-                        if (!checkuser) {
-                            // insert all data to database
 
-                            Boolean insert = DB.insertData(user, password, emails, adr);
+                        auth.createUserWithEmailAndPassword(emails,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if(task.isSuccessful())
+                                {
+                                    UserModel userModel = new UserModel(user,password,emails,adr,phone);
+                                    String id = task.getResult().getUser().getUid();
+                                    database.getReference().child("Users").child(id).setValue(userModel);
 
-                            if (insert) {
-                                Toast.makeText(registration.this, "Registration Successful", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(getApplicationContext(), login.class);
-                                startActivity(intent);
-                            } else {
-                                Toast.makeText(registration.this, "Registration Failed", Toast.LENGTH_SHORT).show(); // registration failed
+                                    Toast.makeText(registration.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(registration.this, login.class);
+                                    startActivity(intent);
+                                }
+                                else
+                                {
+                                    Toast.makeText(registration.this, "Registration Failed"+task.getException(), Toast.LENGTH_SHORT).show();
+                                }
                             }
-                        } else {
-                            Toast.makeText(registration.this, "Already Have an account ! Try login", Toast.LENGTH_SHORT).show(); // Same user found
-                            Intent intent = new Intent(getApplicationContext(), login.class);
-                            startActivity(intent); // go to login
+                        });
 
-                        }
                     }
                     else
                     {
@@ -115,6 +127,8 @@ public class registration extends AppCompatActivity {
 
 
             }
+
+
         });
         // Registration Button ends
 
