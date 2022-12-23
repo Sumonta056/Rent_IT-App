@@ -4,17 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.os.Handler;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.google.android.material.button.MaterialButton;
-
 import java.util.Objects;
 
-public class menu extends AppCompatActivity {
-
-    MaterialButton sell;
+public class intro extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,17 +23,20 @@ public class menu extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN); //enable full screen
         // hide the title bar
 
-        setContentView(R.layout.activity_menu);
+        setContentView(R.layout.activity_intro);
 
-        // sell button
-        sell = findViewById(R.id.sell);
-        sell.setOnClickListener(new View.OnClickListener() {
+        // intro gif starts
+        new Handler().postDelayed(new Runnable() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(menu.this , sell.class );
-                startActivity(intent); // go to sell screen
+            public void run() {
+                Intent intent = new Intent(intro.this ,MainActivity.class);
+                startActivity(intent);
+                finish();
             }
-        });
-        // sell button
+        },4000);
+        // intro gif ends
+
+
+
     }
 }
