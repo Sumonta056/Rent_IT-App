@@ -46,7 +46,7 @@ public class login extends AppCompatActivity {
         move1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(login.this , MainActivity.class );
+                Intent intent = new Intent(login.this , base.class );
                 startActivity(intent);
             }
         });
@@ -72,6 +72,7 @@ public class login extends AppCompatActivity {
 
                   else
                   {
+<<<<<<< Updated upstream
                       // checking username and pass with database
                       Boolean checkuserpass = DB.checkusernamepassword(user,password);
                       if(checkuserpass == true)// if user pass matches
@@ -86,6 +87,25 @@ public class login extends AppCompatActivity {
                           Intent intent = new Intent(getApplicationContext(), login.class); // restart screem
                           startActivity(intent);
                       }
+=======
+                      // check email address and pass to identify user
+                      auth.signInWithEmailAndPassword(user,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                          @Override
+                          public void onComplete(@NonNull Task<AuthResult> task) {
+                              if(task.isSuccessful())
+                              {
+                                  // move to menu screen
+                                  Toast.makeText(login.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                                  Intent intent = new Intent(login.this, MainActivity.class);
+                                  startActivity(intent);
+                              }
+                              else
+                              {
+                                  Toast.makeText(login.this, "Login Failed", Toast.LENGTH_SHORT).show();
+                              }
+                          }
+                      });
+>>>>>>> Stashed changes
                   }
             }
         });

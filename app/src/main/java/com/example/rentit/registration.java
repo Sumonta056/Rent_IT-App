@@ -84,6 +84,7 @@ public class registration extends AppCompatActivity {
                 {
                     // check both pass and repass same or not
                     if(password.equals(pasRe)) {
+<<<<<<< Updated upstream
                         Boolean checkuser = DB.checkusername(user);
                         // check duplicate user name
                         if (!checkuser) {
@@ -95,6 +96,30 @@ public class registration extends AppCompatActivity {
                                 startActivity(intent);
                             } else {
                                 Toast.makeText(registration.this, "Registration Failed", Toast.LENGTH_SHORT).show(); // registration failed
+=======
+
+                        // create database with just email and pass for login
+                        auth.createUserWithEmailAndPassword(emails,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if(task.isSuccessful())
+                                {
+                                    // this part is for all user information database creation
+                                    UserModel userModel = new UserModel(user,password,emails,adr,phone);
+                                    String id = task.getResult().getUser().getUid();
+                                    database.getReference().child("Users").child(id).setValue(userModel);
+                                    // this part is for all user information database creation
+
+                                    Toast.makeText(registration.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(registration.this, login.class);
+                                    startActivity(intent);// move to login screen
+
+                                }
+                                else
+                                {
+                                    Toast.makeText(registration.this, "Registration Failed"+task.getException(), Toast.LENGTH_SHORT).show();
+                                }
+>>>>>>> Stashed changes
                             }
                         } else {
                             Toast.makeText(registration.this, "Already Have an account ! Try login", Toast.LENGTH_SHORT).show(); // Same user found

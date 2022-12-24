@@ -1,4 +1,4 @@
-package com.example.rentit;
+package com.example.rentit.models;
 
 import android.content.ContentValues;
 import android.content.Context;
