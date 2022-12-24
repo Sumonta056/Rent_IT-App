@@ -1,8 +1,10 @@
-package com.example.rentit;
+package com.example.rentit.menu;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.rentit.R;
 
 public class account extends AppCompatActivity {
 

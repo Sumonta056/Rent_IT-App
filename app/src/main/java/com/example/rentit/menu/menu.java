@@ -1,16 +1,21 @@
-package com.example.rentit;
+package com.example.rentit.menu;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.example.rentit.R;
+import com.google.android.material.button.MaterialButton;
+
 import java.util.Objects;
 
-public class intro extends AppCompatActivity {
+public class menu extends AppCompatActivity {
+
+    MaterialButton sell;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,20 +28,17 @@ public class intro extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN); //enable full screen
         // hide the title bar
 
-        setContentView(R.layout.activity_intro);
+        setContentView(R.layout.activity_menu);
 
-        // intro gif starts
-        new Handler().postDelayed(new Runnable() {
+        // sell button
+        sell = findViewById(R.id.sell);
+        sell.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void run() {
-                Intent intent = new Intent(intro.this ,base.class);
-                startActivity(intent);
-                finish();
+            public void onClick(View view) {
+                Intent intent = new Intent(menu.this , com.example.rentit.menu.sell.class );
+                startActivity(intent); // go to sell screen
             }
-        },4000);
-        // intro gif ends
-
-
-
+        });
+        // sell button
     }
 }

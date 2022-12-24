@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation2"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.rentit.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_profilee"
+        android:name="com.example.rentit.ui.Profile.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profilee" />
+
+    <fragment
+        android:id="@+id/nav_categorye"
+        android:name="com.example.rentit.ui.Category.CategoryFragment"
+        android:label="Category"
+        tools:layout="@layout/fragment_categorye" />
+    <fragment
+        android:id="@+id/myorderFragment"
+        android:name="com.example.rentit.myorderFragment"
+        android:label="My Orders"
+        tools:layout="@layout/fragment_myorder" />
+    <fragment
+        android:id="@+id/mycartFragment"
+        android:name="com.example.rentit.MycartFragment"
+        android:label="My Cart"
+        tools:layout="@layout/fragment_mycart" />
+    <fragment
+        android:id="@+id/aboutUsFragment"
+        android:name="com.example.rentit.AboutUsFragment"
+        android:label="About Us "
+        tools:layout="@layout/fragment_about_us" />
+</navigation>

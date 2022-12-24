@@ -7,14 +7,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageButton;
 
-import com.google.android.material.button.MaterialButton;
+import com.example.rentit.LoginReg.login;
 
 import java.util.Objects;
 
-public class menu extends AppCompatActivity {
+public class base extends AppCompatActivity {
 
-    MaterialButton sell;
+    // Button
+    private ImageButton move;
+    // Button
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,17 +30,20 @@ public class menu extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN); //enable full screen
         // hide the title bar
 
-        setContentView(R.layout.activity_menu);
+        setContentView(R.layout.activity_basee);
 
-        // sell button
-        sell = findViewById(R.id.sell);
-        sell.setOnClickListener(new View.OnClickListener() {
+        // next Button
+        move = findViewById(R.id.button2);
+        move.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(menu.this , sell.class );
-                startActivity(intent); // go to sell screen
+                Intent intent = new Intent(base.this, login.class);
+                startActivity(intent);
             }
         });
-        // sell button
+
+        // next Button
+
+
     }
 }

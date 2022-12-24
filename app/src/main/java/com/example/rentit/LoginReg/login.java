@@ -1,4 +1,4 @@
-package com.example.rentit;
+package com.example.rentit.LoginReg;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +13,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.rentit.MainActivity;
+import com.example.rentit.R;
+import com.example.rentit.menu.menu;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
@@ -51,7 +54,7 @@ public class login extends AppCompatActivity {
         move1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(login.this , MainActivity.class );
+                Intent intent = new Intent(login.this ,com.example.rentit.base.class );
                 startActivity(intent);
             }
         });
@@ -83,7 +86,7 @@ public class login extends AppCompatActivity {
                               if(task.isSuccessful())
                               {
                                   Toast.makeText(login.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                                  Intent intent = new Intent(login.this, menu.class);
+                                  Intent intent = new Intent(login.this, MainActivity.class);
                                   startActivity(intent);
                               }
                               else

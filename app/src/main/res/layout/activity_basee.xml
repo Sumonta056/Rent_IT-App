@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_margin="0dp"
     android:background="@drawable/bb"
-    tools:context=".MainActivity">
+    tools:context=".base">
     <ImageButton
         android:id="@+id/button2"
         android:layout_width="165dp"
@@ -19,6 +19,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/go" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
