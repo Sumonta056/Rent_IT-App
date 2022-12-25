@@ -13,7 +13,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.rentit.MainActivity;
 import com.example.rentit.R;
 import com.example.rentit.menu.menu;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -86,7 +85,7 @@ public class login extends AppCompatActivity {
                               if(task.isSuccessful())
                               {
                                   Toast.makeText(login.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                                  Intent intent = new Intent(login.this, MainActivity.class);
+                                  Intent intent = new Intent(login.this, menu.class);
                                   startActivity(intent);
                               }
                               else

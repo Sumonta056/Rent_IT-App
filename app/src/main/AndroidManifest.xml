@@ -13,7 +13,14 @@
         android:theme="@style/Theme.RentIT"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".menu.buyScreen"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".adapters.MainActivity"
             android:exported="false"
             android:label="@string/title_activity_main"
             android:theme="@style/Theme.RentIT.NoActionBar">
@@ -45,20 +52,6 @@
         </activity>
         <activity
             android:name=".menu.account"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".menu.rent"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".menu.buy"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

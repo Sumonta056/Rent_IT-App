@@ -16,6 +16,7 @@ import java.util.Objects;
 public class menu extends AppCompatActivity {
 
     MaterialButton sell;
+    MaterialButton buy ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,17 @@ public class menu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(menu.this , com.example.rentit.menu.sell.class );
+                startActivity(intent); // go to sell screen
+            }
+        });
+        // sell button
+
+        // sell button
+        buy = findViewById(R.id.buy);
+        buy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(menu.this , buyScreen.class);
                 startActivity(intent); // go to sell screen
             }
         });

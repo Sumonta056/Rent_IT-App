@@ -50,7 +50,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/materialButton3"
+        android:id="@+id/buy"
         android:layout_width="357dp"
         android:layout_height="70dp"
         android:layout_margin="70dp"
@@ -75,7 +75,7 @@
         android:layout_height="70dp"
         android:layout_margin="70dp"
         android:backgroundTint="#1F1347"
-        android:text="Rent"
+        android:text="Free"
         app:icon="@drawable/ic_baseline_shopping_bag_24"
         app:iconGravity="textStart"
         android:gravity="center"
