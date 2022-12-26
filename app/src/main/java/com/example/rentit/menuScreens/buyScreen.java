@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,6 +36,8 @@ public class buyScreen extends AppCompatActivity {
     FirestoreRecyclerAdapter adapter;
     // database
 
+    String emails;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +48,11 @@ public class buyScreen extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN); //enable full screen
         // hide the title bar
+
+        // login info passing
+        Intent intents = getIntent();
+        emails = intents.getStringExtra("emails");
+        // login info passing
 
         // accessing the buy screen layout
         setContentView(R.layout.activity_buy_screen);
@@ -126,6 +134,17 @@ public class buyScreen extends AppCompatActivity {
         adapter.startListening();
     }
     // faster execution
+
+    public void onBackPressed() {
+
+        Intent intent = new Intent(buyScreen.this, menu.class);
+        // pass login data to menu
+        intent.putExtra("emails", emails);
+        // pass login data to menu
+        startActivity(intent); // go to sell screen
+
+        super.onBackPressed();
+    }
 }
 
 

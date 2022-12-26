@@ -1,13 +1,16 @@
 package com.example.rentit.menuScreens;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.example.rentit.acountProfile;
 import com.example.rentit.R;
 import com.google.android.material.button.MaterialButton;
 
@@ -18,6 +21,9 @@ public class menu extends AppCompatActivity {
     MaterialButton sell;
     MaterialButton buy ;
     MaterialButton free;
+    MaterialButton account;
+
+    String emails;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +38,20 @@ public class menu extends AppCompatActivity {
 
         setContentView(R.layout.activity_menu);
 
+        // login info passing
+        Intent intents = getIntent();
+        emails = intents.getStringExtra("emails");
+        // login info passing
+
         // sell button
         sell = findViewById(R.id.sell);
         sell.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(menu.this , com.example.rentit.menuScreens.sell.class );
+                // pass login data to menu
+                intent.putExtra("emails" ,emails);
+                // pass login data to menu
                 startActivity(intent); // go to sell screen
             }
         });
@@ -49,6 +63,9 @@ public class menu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(menu.this , buyScreen.class);
+                // pass login data to menu
+                intent.putExtra("emails" ,emails);
+                // pass login data to menu
                 startActivity(intent); // go to buy screen
             }
         });
@@ -60,11 +77,55 @@ public class menu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(menu.this , freeScreen.class);
+                // pass login data to menu
+                intent.putExtra("emails" ,emails);
+                // pass login data to menu
                 startActivity(intent); // go to free screen
             }
         });
         // free button
 
+        // account button
 
+
+        account = findViewById(R.id.account);
+        account.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(menu.this , acountProfile.class);
+                // pass login data to menu
+                intent.putExtra("emails" ,emails);
+                // pass login data to menu
+                startActivity(intent); // go to free screen
+            }
+        });
+        // account button
+
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        // Exit app
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(menu.this);
+        alertDialog.setTitle("Exit App");
+        alertDialog.setMessage("Do you want to exit app?");
+        alertDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finishAffinity();
+            }
+        });
+
+        alertDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                dialog.dismiss();
+            }
+        });
+
+        alertDialog.show();
+        // exit app
     }
 }

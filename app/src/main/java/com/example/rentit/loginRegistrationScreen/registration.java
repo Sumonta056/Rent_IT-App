@@ -102,7 +102,7 @@ public class registration extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if(task.isSuccessful())
                                 {
-                                    UserModel userModel = new UserModel(user,password,emails,adr,phone);
+                                    UserModel userModel = new UserModel(user,emails,adr,password,phone);
                                     String id = task.getResult().getUser().getUid();
                                     database.getReference().child("Users").child(id).setValue(userModel);
 

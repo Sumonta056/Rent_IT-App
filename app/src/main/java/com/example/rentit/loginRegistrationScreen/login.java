@@ -1,8 +1,10 @@
 package com.example.rentit.loginRegistrationScreen;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -34,6 +36,7 @@ public class login extends AppCompatActivity {
     // Database
     FirebaseAuth auth;
     EditText username ,pass ;
+    public String found ;
     // Database
 
     @Override
@@ -74,6 +77,7 @@ public class login extends AppCompatActivity {
                   String user = username.getText().toString();
                   String password = pass.getText().toString();
 
+
                   // if pass and user box empty : show a message to fill all box
                   if(TextUtils.isEmpty(user) || TextUtils.isEmpty(password))
                       Toast.makeText(login.this, "Please! Fill Up All Field", Toast.LENGTH_SHORT).show();
@@ -87,6 +91,9 @@ public class login extends AppCompatActivity {
                               {
                                   Toast.makeText(login.this, "Login Successful", Toast.LENGTH_SHORT).show();
                                   Intent intent = new Intent(login.this, menu.class);
+                                  // pass login data
+                                  intent.putExtra("emails" ,user);
+                                  // pass login data
                                   startActivity(intent);
                               }
                               else
@@ -111,5 +118,30 @@ public class login extends AppCompatActivity {
             }
         });
         // Registration Button Ends
+    }
+
+    @Override
+    public void onBackPressed() {
+        // Exit app
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(login.this);
+        alertDialog.setTitle("Exit App");
+        alertDialog.setMessage("Do you want to exit app?");
+        alertDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finishAffinity();
+            }
+        });
+
+        alertDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                dialog.dismiss();
+            }
+        });
+
+        alertDialog.show();
+        // exit app
     }
 }

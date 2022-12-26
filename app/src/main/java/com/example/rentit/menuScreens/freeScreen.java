@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,6 +37,8 @@ public class freeScreen extends AppCompatActivity {
     FirestoreRecyclerAdapter adapter;
     // database
 
+    String emails;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +49,11 @@ public class freeScreen extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN); //enable full screen
         // hide the title bar
+
+        // login info passing
+        Intent intents = getIntent();
+        emails = intents.getStringExtra("emails");
+        // login info passing
 
         setContentView(R.layout.activity_free_screen);
 
@@ -112,6 +120,17 @@ public class freeScreen extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         adapter.startListening();
+    }
+
+    public void onBackPressed() {
+
+        Intent intent = new Intent(freeScreen.this, menu.class);
+        // pass login data to menu
+        intent.putExtra("emails", emails);
+        // pass login data to menu
+        startActivity(intent); // go to sell screen
+
+        super.onBackPressed();
     }
 }
 
