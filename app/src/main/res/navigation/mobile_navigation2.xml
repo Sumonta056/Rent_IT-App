@@ -24,17 +24,17 @@
         tools:layout="@layout/fragment_categorye" />
     <fragment
         android:id="@+id/myorderFragment"
-        android:name="com.example.rentit.adapters.myorderFragment"
+        android:name="com.example.rentit.productsData.myorderFragment"
         android:label="My Orders"
         tools:layout="@layout/fragment_myorder" />
     <fragment
         android:id="@+id/mycartFragment"
-        android:name="com.example.rentit.adapters.MycartFragment"
+        android:name="com.example.rentit.productsData.MycartFragment"
         android:label="My Cart"
         tools:layout="@layout/fragment_mycart" />
     <fragment
         android:id="@+id/aboutUsFragment"
-        android:name="com.example.rentit.adapters.AboutUsFragment"
+        android:name="com.example.rentit.productsData.AboutUsFragment"
         android:label="About Us "
         tools:layout="@layout/fragment_about_us" />
 </navigation>

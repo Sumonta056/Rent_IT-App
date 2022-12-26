@@ -13,30 +13,28 @@
         android:theme="@style/Theme.RentIT"
         tools:targetApi="31">
         <activity
-            android:name=".menu.buyScreen"
+            android:name=".freeScreen"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".adapters.MainActivity"
-            android:exported="false"
-            android:label="@string/title_activity_main"
-            android:theme="@style/Theme.RentIT.NoActionBar">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".base"
+            android:name=".menuScreens.buyScreen"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".intro"
+            android:name=".screens.base"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".screens.intro"
             android:exported="true">
 
             <!-- changed this part -->
@@ -51,35 +49,35 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".menu.account"
+            android:name=".menuScreens.account"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".menu.sell"
+            android:name=".menuScreens.sell"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".LoginReg.registration"
+            android:name=".loginRegistrationScreen.registration"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".menu.menu"
+            android:name=".menuScreens.menu"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".LoginReg.login"
+            android:name=".loginRegistrationScreen.login"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

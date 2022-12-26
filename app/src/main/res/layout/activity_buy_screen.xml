@@ -5,13 +5,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/b2"
-    tools:context=".menu.buyScreen">
+    tools:context=".menuScreens.buyScreen">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/check"
+        android:layout_width="409dp"
+        android:layout_height="826dp"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp" />
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:drawableLeft="@drawable/ic_baseline_local_grocery_store_24"
+        android:drawablePadding="1dp"
+        android:drawableTint="@color/black"
+        android:fontFamily="@font/opensans"
+        android:gravity="center"
+        android:text="Best Deals"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.001" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
