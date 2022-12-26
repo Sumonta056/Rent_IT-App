@@ -17,6 +17,7 @@ public class menu extends AppCompatActivity {
 
     MaterialButton sell;
     MaterialButton buy ;
+    MaterialButton free;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,15 +43,28 @@ public class menu extends AppCompatActivity {
         });
         // sell button
 
-        // sell button
+        // buy button
         buy = findViewById(R.id.buy);
         buy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(menu.this , buyScreen.class);
-                startActivity(intent); // go to sell screen
+                startActivity(intent); // go to buy screen
             }
         });
-        // sell button
+        // buy button
+
+        // free button
+        free = findViewById(R.id.freebutton);
+        free.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(menu.this , freeScreen.class);
+                startActivity(intent); // go to free screen
+            }
+        });
+        // free button
+
+
     }
 }

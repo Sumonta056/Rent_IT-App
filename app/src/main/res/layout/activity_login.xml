@@ -89,7 +89,6 @@
         android:id="@+id/forget"
         android:layout_width="186dp"
         android:layout_height="48dp"
-        android:layout_marginBottom="168dp"
         android:background="#00ffffff"
         android:text="Forgot Password?"
         android:textAllCaps="false"
@@ -98,9 +97,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
 
-        app:layout_constraintStart_toStartOf="parent" />
-
-
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.8" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

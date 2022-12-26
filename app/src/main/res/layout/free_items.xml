@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="15dp"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#ffffff"
+        android:padding="10dp">
+
+
+        <ImageView
+            android:id="@+id/free_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/sale"
+            android:scaleType="centerCrop"
+            app:riv_corner_radius="15dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/opensans"
+            android:gravity="end"
+            android:text="@string/free"
+            android:textColor="@color/black"
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/free_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/opensans"
+            android:text="Popular Products"
+            android:textColor="@color/black"
+            android:textSize="19sp" />
+
+        <TextView
+            android:id="@+id/free_des"
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:textColor="@color/black"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="Description" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:layout_margin="-5dp"
+
+                android:src="@drawable/rating" />
+
+            <TextView
+                android:id="@+id/free_rat"
+                android:layout_width="81dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/opensans"
+                android:paddingLeft="2dp"
+                android:text="5.0"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="89dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Location : "
+                android:textAlignment="viewStart"
+                android:textColor="@color/black" />
+
+            <TextView
+
+                android:id="@+id/free_address"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="Narayanganj"
+                android:textColor="@color/black"
+                android:textStyle="italic"
+                />
+
+
+        </LinearLayout>
+
+      </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

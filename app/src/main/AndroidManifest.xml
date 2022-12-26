@@ -49,7 +49,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".menuScreens.account"
+            android:name=".menuScreens.freeScreen"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
