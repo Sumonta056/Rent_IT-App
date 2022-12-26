@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.example.rentit.acountProfile;
 import com.example.rentit.R;
 import com.google.android.material.button.MaterialButton;
 
@@ -18,12 +17,17 @@ import java.util.Objects;
 
 public class menu extends AppCompatActivity {
 
+    // Buttons
     MaterialButton sell;
     MaterialButton buy ;
     MaterialButton free;
     MaterialButton account;
+    MaterialButton about;
+    // buttons
 
+    // data passing
     String emails;
+    // data passing
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,8 +90,6 @@ public class menu extends AppCompatActivity {
         // free button
 
         // account button
-
-
         account = findViewById(R.id.account);
         account.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,10 +98,24 @@ public class menu extends AppCompatActivity {
                 // pass login data to menu
                 intent.putExtra("emails" ,emails);
                 // pass login data to menu
-                startActivity(intent); // go to free screen
+                startActivity(intent); // go to account screen
             }
         });
         // account button
+
+        // about button
+        about = findViewById(R.id.about);
+        about.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(menu.this , aboutUs.class);
+                // pass login data to menu
+                intent.putExtra("emails" ,emails);
+                // pass login data to menu
+                startActivity(intent); // go to about screen
+            }
+        });
+        // about button
 
 
     }

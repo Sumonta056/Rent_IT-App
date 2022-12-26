@@ -90,13 +90,13 @@
         app:layout_constraintVertical_bias="0.72" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/materialButton6"
+        android:id="@+id/status"
         android:layout_width="125dp"
         android:layout_height="49dp"
         android:backgroundTint="#0A837F"
         android:drawableLeft="@drawable/ic_baseline_home_24"
         android:drawablePadding="10dp"
-        android:text="Home"
+        android:text="Status"
         android:textAllCaps="false"
         android:textSize="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -124,7 +124,7 @@
         app:layout_constraintVertical_bias="0.99" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/materialButton8"
+        android:id="@+id/about"
         android:layout_width="125dp"
         android:layout_height="49dp"
         android:backgroundTint="#0A837F"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/b5"
-    tools:context=".acountProfile">
+    tools:context=".menuScreens.acountProfile">
 
 
     <TextView
@@ -14,10 +14,9 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="@drawable/back"
-        android:gravity="center"
         android:padding="9dp"
-        android:paddingLeft="20dp"
-        android:text="Sumonta Saha Mridul"
+
+        android:text="Loading Name"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:textSize="24sp"
@@ -34,10 +33,9 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="@drawable/back"
-        android:gravity="center"
         android:padding="9dp"
         android:paddingLeft="20dp"
-        android:text="sumontasaha@gmail.com"
+        android:text="Loading Email"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:textSize="24sp"
@@ -54,10 +52,10 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="@drawable/back"
-        android:gravity="center"
+
         android:padding="9dp"
         android:paddingLeft="20dp"
-        android:text="01845359479"
+        android:text="Loading Phone"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:textSize="24sp"
@@ -74,10 +72,10 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="@drawable/back"
-        android:gravity="center"
+
         android:padding="9dp"
         android:paddingLeft="20dp"
-        android:text="Dhaka"
+        android:text="Loading Location"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:textSize="24sp"
@@ -94,10 +92,9 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="@drawable/back"
-        android:gravity="center"
         android:padding="9dp"
         android:paddingLeft="20dp"
-        android:text="123456"
+        android:text="Loading Password"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:textSize="24sp"
