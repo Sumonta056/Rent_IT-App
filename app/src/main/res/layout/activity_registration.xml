@@ -104,8 +104,6 @@
         android:layout_marginTop="24dp"
         android:backgroundTint="@color/black"
         android:text="Registration"
-
-
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"

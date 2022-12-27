@@ -47,6 +47,7 @@
         android:drawablePadding="10dp"
         android:hint="Password"
         android:padding="20dp"
+        android:password="true"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
