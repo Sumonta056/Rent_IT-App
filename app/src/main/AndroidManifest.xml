@@ -13,14 +13,21 @@
         android:theme="@style/Theme.RentIT"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity2"
+            android:name=".MainActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".order.deliveryFree"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".order.orderFree"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

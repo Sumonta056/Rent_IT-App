@@ -16,9 +16,8 @@ import android.view.WindowManager;
 import android.widget.TextView;
 
 
-import com.example.rentit.MainActivity;
+import com.example.rentit.order.orderFree;
 import com.example.rentit.R;
-import com.example.rentit.order.orderBuy;
 import com.example.rentit.productsData.Free;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
@@ -97,7 +96,7 @@ public class freeScreen extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
 
-                        Intent intent = new Intent(getApplicationContext() , MainActivity.class);
+                        Intent intent = new Intent(getApplicationContext() , orderFree.class);
                         // passing data
                         intent.putExtra("emails" , emails);
                         intent.putExtra("name",model.getName());

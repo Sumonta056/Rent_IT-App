@@ -1,4 +1,4 @@
-package com.example.rentit;
+package com.example.rentit.order;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,12 +9,12 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
+import com.example.rentit.R;
 import com.example.rentit.menuScreens.menu;
-import com.example.rentit.order.deliverybuy;
 
 import java.util.Objects;
 
-public class MainActivity2 extends AppCompatActivity {
+public class deliveryFree extends AppCompatActivity {
 
     String emails;
     Button home;
@@ -35,13 +35,13 @@ public class MainActivity2 extends AppCompatActivity {
         emails = intents.getStringExtra("emails");
         // login info passing
 
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_delivery_free);
 
         home = findViewById(R.id.homeBut3);
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity2.this , menu.class);
+                Intent intent = new Intent(deliveryFree.this , menu.class);
                 // pass login data to menu
                 intent.putExtra("emails" ,emails);
                 // pass login data to menu
@@ -52,7 +52,7 @@ public class MainActivity2 extends AppCompatActivity {
 
     public void onBackPressed() {
 
-        Intent intent = new Intent(MainActivity2.this, menu.class);
+        Intent intent = new Intent(deliveryFree.this, menu.class);
         // pass login data to menu
         intent.putExtra("emails", emails);
         // pass login data to menu

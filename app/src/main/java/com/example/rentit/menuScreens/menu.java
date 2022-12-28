@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.example.rentit.MainActivity;
 import com.example.rentit.R;
 import com.google.android.material.button.MaterialButton;
 
@@ -23,6 +24,7 @@ public class menu extends AppCompatActivity {
     MaterialButton free;
     MaterialButton account;
     MaterialButton about;
+    MaterialButton status;
     // buttons
 
     // data passing
@@ -116,6 +118,20 @@ public class menu extends AppCompatActivity {
             }
         });
         // about button
+
+        // status button
+        status = findViewById(R.id.status);
+        status.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(menu.this , MainActivity.class);
+                // pass login data to menu
+                intent.putExtra("emails" ,emails);
+                // pass login data to menu
+                startActivity(intent); // go to about screen
+            }
+        });
+        // status button
 
 
     }

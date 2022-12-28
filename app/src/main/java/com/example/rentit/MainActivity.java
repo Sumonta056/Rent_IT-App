@@ -1,34 +1,44 @@
 package com.example.rentit;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.example.rentit.menuScreens.buyScreen;
 import com.example.rentit.menuScreens.freeScreen;
-import com.example.rentit.order.deliverybuy;
-import com.example.rentit.order.orderBuy;
+import com.example.rentit.menuScreens.menu;
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.squareup.picasso.Picasso;
 
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
+    // recycler View
+    RecyclerView recyclerView;
+    // recyler  View
 
+    // database
+    FirebaseFirestore firebaseFirestore;
+    FirestoreRecyclerAdapter adapter;
+    // database
+
+    // data passing
     String emails;
-    String name , description , rating , address , image;
-
-    EditText n , d , r , a;
-    ImageView i;
-    Button cancel , next;
-
+    // data passing
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,57 +54,85 @@ public class MainActivity extends AppCompatActivity {
         // login info passing
         Intent intents = getIntent();
         emails = intents.getStringExtra("emails");
-        name  = intents.getStringExtra("name");
-        description = intents.getStringExtra("description");
-        rating = intents.getStringExtra("rating");
-        address  = intents.getStringExtra("address");
-        image = intents.getStringExtra("image");
         // login info passing
 
         setContentView(R.layout.activity_main);
 
-        i = findViewById(R.id.p_image2);
-        Glide.with(MainActivity.this).load(image).into(i);
+        // Initializing variable
+        firebaseFirestore = FirebaseFirestore.getInstance();
+        recyclerView = findViewById(R.id.showProduct);
 
-        n = findViewById(R.id.p_name2);
-        d = findViewById(R.id.p_des2);
-        a = findViewById((R.id.p_address));
-        r = findViewById(R.id.p_rating2);
-        n.setText(name);
-        d.setText(description);
-        a.setText(address);
-        r.setText(rating);
+        //Query
+        // getting the data from database
+        Query query = firebaseFirestore.collection(emails); // collection name from database
 
+        FirestoreRecyclerOptions<UserProductTrack> options = new FirestoreRecyclerOptions.Builder<UserProductTrack>()
+                .setQuery(query, UserProductTrack.class)
+                .build();
 
-        cancel = findViewById(R.id.cancel2);
-        cancel.setOnClickListener(new View.OnClickListener() {
+        adapter = new FirestoreRecyclerAdapter<UserProductTrack, MainActivity.StatusProductViewHolder>(options) {
+            @NonNull
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this , freeScreen.class);
-                // pass login data to menu
-                intent.putExtra("emails" ,emails);
-                // pass login data to menu
-                startActivity(intent); // go to sell screen
+            public MainActivity.StatusProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.product_list ,parent,false);
+                return new MainActivity.StatusProductViewHolder(view);
             }
-        });
 
-
-        next = findViewById(R.id.confirm2);
-        next.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this , MainActivity2.class);
-                // pass login data to menu
-                intent.putExtra("emails" ,emails);
-                // pass login data to menu
-                startActivity(intent); // go to sell screen
+            protected void onBindViewHolder(@NonNull MainActivity.StatusProductViewHolder holder, int position, @NonNull UserProductTrack model) {
+
+                holder.name.setText(model.getName());
+                holder.description.setText(model.getDescription());
+                holder.rating.setText(model.getRating());
+                holder.head.setText(model.getHead());
+                holder.type.setText(model.getType());
+                holder.address.setText(model.getAddress());
+
+
+                String img ;
+                img = model.getImage();
+                Picasso.get().load(img).into(holder.image);
+
             }
-        });
+        };
+
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(adapter);
+    }
+
+    private class StatusProductViewHolder extends RecyclerView.ViewHolder {
+
+        TextView head , name , description , rating , address,type;
+        ImageView image;
+        public StatusProductViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            name = itemView.findViewById(R.id.user_name);
+            description = itemView.findViewById(R.id.user_des);
+            rating = itemView.findViewById(R.id.user_rating);
+            head = itemView.findViewById(R.id.user_head);
+            type = itemView.findViewById(R.id.user_type);
+            address = itemView.findViewById(R.id.user_price_address);
+            image = itemView.findViewById(R.id.user_image);
+        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        adapter.stopListening();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        adapter.startListening();
     }
 
     public void onBackPressed() {
 
-        Intent intent = new Intent(MainActivity.this, freeScreen.class);
+        Intent intent = new Intent(MainActivity.this, menu.class);
         // pass login data to menu
         intent.putExtra("emails", emails);
         // pass login data to menu
