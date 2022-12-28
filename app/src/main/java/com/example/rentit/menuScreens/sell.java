@@ -9,7 +9,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
-import com.example.rentit.MainActivity;
 import com.example.rentit.R;
 
 import java.util.Objects;
@@ -57,7 +56,7 @@ public class sell extends AppCompatActivity {
         rent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(sell.this , MainActivity.class);
+                Intent intent = new Intent(sell.this , sellRentScreen.class);
                 // pass login data to menu
                 intent.putExtra("emails" ,emails);
                 // pass login data to menu

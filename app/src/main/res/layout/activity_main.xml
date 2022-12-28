@@ -4,23 +4,73 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/b9"
+    android:background="@drawable/b13"
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/rent_img"
-        android:layout_width="242dp"
-        android:layout_height="142dp"
+        android:id="@+id/p_image2"
+        android:layout_width="371dp"
+        android:layout_height="128dp"
         android:src="@drawable/load"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.177"
+        app:layout_constraintHorizontal_bias="0.525"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.272" />
+        app:layout_constraintVertical_bias="0.38" />
+
+    <Button
+        android:id="@+id/confirm2"
+        android:layout_width="204dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/black"
+        android:drawableLeft="@drawable/ic_baseline_bookmark_added_24"
+        android:drawableTint="@color/white"
+        android:text="Confirm Order"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.922"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.962" />
+
+    <Button
+        android:id="@+id/cancel2"
+        android:layout_width="166dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/black"
+        android:drawableLeft="@drawable/ic_baseline_cancel_24"
+        android:drawableTint="@color/white"
+        android:text="Cancel"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.964" />
 
     <EditText
-        android:id="@+id/rent_name"
+        android:id="@+id/p_des2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@drawable/back"
+        android:drawableLeft="@drawable/ic_baseline_info_24"
+        android:drawablePadding="10dp"
+        android:hint="Description"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.639" />
+
+    <EditText
+        android:id="@+id/p_name2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
@@ -36,10 +86,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.442" />
+        app:layout_constraintVertical_bias="0.536" />
 
     <EditText
-        android:id="@+id/rent_rating"
+        android:id="@+id/p_rating2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
@@ -54,54 +104,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.763" />
+        app:layout_constraintVertical_bias="0.842" />
 
     <EditText
-        android:id="@+id/rent_des"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:background="@drawable/back"
-        android:drawableLeft="@drawable/ic_baseline_info_24"
-        android:drawablePadding="10dp"
-        android:hint="Description"
-        android:padding="20dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.551" />
-
-    <EditText
-        android:id="@+id/rent_price"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:background="@drawable/back"
-        android:drawableLeft="@drawable/ic_baseline_autorenew_24"
-        android:drawablePadding="10dp"
-        android:hint="Price/Time"
-        android:padding="20dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.659" />
-
-    <EditText
-        android:id="@+id/rent_address"
+        android:id="@+id/p_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:background="@drawable/back"
         android:drawableLeft="@drawable/ic_baseline_location_on_24"
         android:drawablePadding="10dp"
-        android:hint="PickUp Address"
+        android:hint="Address"
         android:padding="20dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
@@ -109,54 +122,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.872" />
-
-    <Button
-        android:id="@+id/post_it"
-        android:layout_width="166dp"
-        android:layout_height="60dp"
-        android:backgroundTint="@color/black"
-        android:drawableLeft="@drawable/ic_baseline_signpost_24"
-        android:drawableTint="@color/white"
-        android:text="Post It"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.885"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.967" />
-
-    <Button
-        android:id="@+id/select_img"
-        android:layout_width="187dp"
-        android:layout_height="60dp"
-        android:backgroundTint="@color/black"
-        android:drawableLeft="@drawable/ic_baseline_image_24"
-        android:drawableTint="@color/white"
-        android:text="Select Image"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.084"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.969" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="109dp"
-        android:layout_height="116dp"
-        android:fontFamily="@font/opensans"
-        android:gravity="center"
-        android:text="Product Image"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.85"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.272" />
+        app:layout_constraintVertical_bias="0.739" />
 </androidx.constraintlayout.widget.ConstraintLayout>

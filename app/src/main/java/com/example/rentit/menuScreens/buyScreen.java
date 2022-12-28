@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.rentit.order.orderBuy;
 import com.example.rentit.R;
 import com.example.rentit.productsData.Products;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
@@ -29,6 +31,7 @@ public class buyScreen extends AppCompatActivity {
 
     // recycler View
     RecyclerView recyclerView;
+    Context context;
     // recyler  View
 
     // database
@@ -83,6 +86,7 @@ public class buyScreen extends AppCompatActivity {
             // what to get from database
             protected void onBindViewHolder(@NonNull ProductsViewHolder holder, int position, @NonNull Products model) {
 
+
                 // setting and getting information from database
                 holder.name.setText(model.getName());
                 holder.description.setText(model.getDescription());
@@ -95,6 +99,27 @@ public class buyScreen extends AppCompatActivity {
                 imageUrl = model.getImage();
                 Picasso.get().load(imageUrl).into(holder.image);
                 // loading image from database
+
+
+                // switch to next screen selecting any image
+                holder.image.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        Intent intent = new Intent(getApplicationContext() , orderBuy.class);
+                        // passing data
+                        intent.putExtra("emails" , emails);
+                        intent.putExtra("name",model.getName());
+                        intent.putExtra("description",model.getDescription());
+                        intent.putExtra("rating",model.getRating());
+                        intent.putExtra("price",model.getPrice());
+                        intent.putExtra("image",imageUrl);
+                        // passing data
+                        startActivity(intent);
+                    }
+                });
+                // switch to next screen selecting any image
+
 
             }
         };

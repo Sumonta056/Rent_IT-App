@@ -16,7 +16,9 @@ import android.view.WindowManager;
 import android.widget.TextView;
 
 
+import com.example.rentit.MainActivity;
 import com.example.rentit.R;
+import com.example.rentit.order.orderBuy;
 import com.example.rentit.productsData.Free;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
@@ -89,6 +91,25 @@ public class freeScreen extends AppCompatActivity {
                 String img;
                 img = model.getImage();
                 Picasso.get().load(img).into(holder.image);
+
+                // switch to next screen selecting any image
+                holder.image.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        Intent intent = new Intent(getApplicationContext() , MainActivity.class);
+                        // passing data
+                        intent.putExtra("emails" , emails);
+                        intent.putExtra("name",model.getName());
+                        intent.putExtra("description",model.getDescription());
+                        intent.putExtra("rating",model.getRating());
+                        intent.putExtra("address",model.getAddress());
+                        intent.putExtra("image",img);
+                        // passing data
+                        startActivity(intent);
+                    }
+                });
+                // switch to next screen selecting any image
             }
         };
 
