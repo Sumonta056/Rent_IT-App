@@ -97,7 +97,7 @@ public class orderBuy extends AppCompatActivity {
                 items.put("address",price);
                 items.put("image",image);
                 items.put("type","Paid");
-                items.put("head","Brought By You");
+                items.put("head","Bought By You");
 
                 firebaseFirestore.collection(emails).add(items);
 

@@ -1,4 +1,4 @@
-package com.example.rentit;
+package com.example.rentit.order;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,7 +15,8 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.rentit.menuScreens.freeScreen;
+import com.example.rentit.R;
+import com.example.rentit.productsData.UserProductTrack;
 import com.example.rentit.menuScreens.menu;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
@@ -25,7 +26,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.Objects;
 
-public class MainActivity extends AppCompatActivity {
+public class status extends AppCompatActivity {
 
     // recycler View
     RecyclerView recyclerView;
@@ -56,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         emails = intents.getStringExtra("emails");
         // login info passing
 
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_status);
 
         // Initializing variable
         firebaseFirestore = FirebaseFirestore.getInstance();
@@ -70,16 +71,16 @@ public class MainActivity extends AppCompatActivity {
                 .setQuery(query, UserProductTrack.class)
                 .build();
 
-        adapter = new FirestoreRecyclerAdapter<UserProductTrack, MainActivity.StatusProductViewHolder>(options) {
+        adapter = new FirestoreRecyclerAdapter<UserProductTrack, status.StatusProductViewHolder>(options) {
             @NonNull
             @Override
-            public MainActivity.StatusProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            public status.StatusProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
                 View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.product_list ,parent,false);
-                return new MainActivity.StatusProductViewHolder(view);
+                return new status.StatusProductViewHolder(view);
             }
 
             @Override
-            protected void onBindViewHolder(@NonNull MainActivity.StatusProductViewHolder holder, int position, @NonNull UserProductTrack model) {
+            protected void onBindViewHolder(@NonNull status.StatusProductViewHolder holder, int position, @NonNull UserProductTrack model) {
 
                 holder.name.setText(model.getName());
                 holder.description.setText(model.getDescription());
@@ -132,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onBackPressed() {
 
-        Intent intent = new Intent(MainActivity.this, menu.class);
+        Intent intent = new Intent(status.this, menu.class);
         // pass login data to menu
         intent.putExtra("emails", emails);
         // pass login data to menu

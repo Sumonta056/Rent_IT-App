@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.example.rentit.MainActivity;
 import com.example.rentit.R;
 import com.google.android.material.button.MaterialButton;
 
@@ -124,7 +123,7 @@ public class menu extends AppCompatActivity {
         status.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(menu.this , MainActivity.class);
+                Intent intent = new Intent(menu.this , com.example.rentit.order.status.class);
                 // pass login data to menu
                 intent.putExtra("emails" ,emails);
                 // pass login data to menu

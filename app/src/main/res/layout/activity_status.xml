@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/b2"
-    tools:context=".MainActivity">
+    tools:context=".order.status">
 
     <TextView
         android:id="@+id/textView10"
@@ -14,7 +14,7 @@
         android:fontFamily="@font/opensans"
         android:gravity="center"
         android:padding="10dp"
-        android:text="Product List Of User"
+        android:text="My Order List"
         android:textColor="@color/black"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"

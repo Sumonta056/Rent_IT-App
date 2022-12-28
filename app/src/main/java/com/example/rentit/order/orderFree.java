@@ -95,7 +95,7 @@ public class orderFree extends AppCompatActivity {
                 items.put("address",address);
                 items.put("image",image);
                 items.put("type","Free");
-                items.put("head","Brought By You");
+                items.put("head","Bought By You");
 
                 firebaseFirestore.collection(emails).add(items);
 

@@ -1,4 +1,4 @@
-package com.example.rentit;
+package com.example.rentit.productsData;
 
 public class UserProductTrack {
 

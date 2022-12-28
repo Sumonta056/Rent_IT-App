@@ -136,6 +136,17 @@ public class sellRentScreen extends AppCompatActivity {
                     }
                 });
 
+        //pushing status
+        Map<String,String > item = new HashMap<>();
+        item.put("name", name.getText().toString());
+        item.put("description", description.getText().toString());
+        item.put("rating", rating.getText().toString());
+        item.put("address",price.getText().toString());
+        item.put("image",test.toString());
+        item.put("type","Paid");
+        item.put("head","Rented By You");
+
+        firebaseFirestore.collection(emails).add(item);
 
         // adding to database
     }
