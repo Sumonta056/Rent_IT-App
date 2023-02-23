@@ -127,7 +127,7 @@ public class menu extends AppCompatActivity {
                 // pass login data to menu
                 intent.putExtra("emails" ,emails);
                 // pass login data to menu
-                startActivity(intent); // go to about screen
+                startActivity(intent); // go to status screen
             }
         });
         // status button
@@ -136,11 +136,15 @@ public class menu extends AppCompatActivity {
     }
 
     @Override
+    // what to do back button press
     public void onBackPressed() {
         // Exit app
+        // show a dialog box
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(menu.this);
         alertDialog.setTitle("Exit App");
         alertDialog.setMessage("Do you want to exit app?");
+        // show two option yes or no
+        //  if user pressed yes , stop the application
         alertDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -148,6 +152,7 @@ public class menu extends AppCompatActivity {
             }
         });
 
+        //  if user pressed no , go back to previous screen
         alertDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

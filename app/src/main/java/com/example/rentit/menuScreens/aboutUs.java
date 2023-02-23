@@ -13,6 +13,7 @@ import java.util.Objects;
 
 public class aboutUs extends AppCompatActivity {
 
+    // login info tracking
     String emails;
 
     @Override
@@ -35,13 +36,15 @@ public class aboutUs extends AppCompatActivity {
     }
 
     @Override
+
+    // move to menu screen if back key pressed
     public void onBackPressed() {
 
         Intent intent = new Intent(aboutUs.this, menu.class);
         // pass login data to menu
         intent.putExtra("emails", emails);
         // pass login data to menu
-        startActivity(intent); // go to sell screen
+        startActivity(intent); // go to meny screen
 
         super.onBackPressed();
     }

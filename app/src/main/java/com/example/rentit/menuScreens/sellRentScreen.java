@@ -54,10 +54,13 @@ public class sellRentScreen extends AppCompatActivity {
     Uri test;
     // product info and database
 
+    // tracking login info
     String emails;
+    // tracking login info
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
         // hide the title bar
         requestWindowFeature(Window.FEATURE_NO_TITLE); //will hide the title
@@ -71,21 +74,22 @@ public class sellRentScreen extends AppCompatActivity {
         emails = intents.getStringExtra("emails");
         // login info passing
 
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_sell_rent);
 
-        // image uploading and loading
+        /// image uploading button
         upload = findViewById(R.id.select_img);
         upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // open gallery on device
                 openImage();
                 //uploadImage();
+                //upload the select the image to firestore database
             }
         });
-        // image uploading and loading
+        // image uploading button
 
-        // posting info database
+        // posting info into database
         name = findViewById(R.id.rent_name);
         description = findViewById(R.id.rent_des);
         rating = findViewById(R.id.rent_rating);
@@ -94,22 +98,26 @@ public class sellRentScreen extends AppCompatActivity {
 
         firebaseFirestore = FirebaseFirestore.getInstance();
 
+        // post button
         post = findViewById(R.id.post_it);
         post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // insert product info into database
                 insertData();
                 Intent intent = new Intent(sellRentScreen.this , menu.class );
                 // pass login data to menu
                 intent.putExtra("emails" ,emails);
                 // pass login data to menu
-                startActivity(intent); // go to sell screen
+                startActivity(intent); // go to menu screen
             }
         });
+        // post button
         // posting info into database
 
     }
 
+    // insert given product information into product database
     private void insertData() {
 
         // uploading progress
@@ -119,7 +127,7 @@ public class sellRentScreen extends AppCompatActivity {
         // uploading progress
 
 
-        // adding to database
+        // adding to  Product database
         Map<String,String > items = new HashMap<>();
         items.put("name", name.getText().toString());
         items.put("description", description.getText().toString());
@@ -127,7 +135,9 @@ public class sellRentScreen extends AppCompatActivity {
         items.put("price",price.getText().toString());
         items.put("image",test.toString());
 
+        // pushed data into product collection
         firebaseFirestore.collection("Products").add(items)
+                // if pushing successful show a message
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
@@ -135,8 +145,10 @@ public class sellRentScreen extends AppCompatActivity {
                         Toast.makeText(sellRentScreen.this,"Post Successful", Toast.LENGTH_SHORT).show();
                     }
                 });
+        // adding to  Product database
 
-        //pushing status
+        //pushing status into user database
+        //product info int user status database
         Map<String,String > item = new HashMap<>();
         item.put("name", name.getText().toString());
         item.put("description", description.getText().toString());
@@ -146,9 +158,11 @@ public class sellRentScreen extends AppCompatActivity {
         item.put("type","Paid");
         item.put("head","Rented By You");
 
+        // pushing into database named based on user email
         firebaseFirestore.collection(emails).add(item);
+        //pushing status into user database
+        //product info int user status database
 
-        // adding to database
     }
 
     // Getting the image from gallery
@@ -160,6 +174,8 @@ public class sellRentScreen extends AppCompatActivity {
         startActivityForResult(intent,IMAGE_REQ);
         // request for image selection
     }
+
+
     // check if any request for image has come or not
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -246,7 +262,7 @@ public class sellRentScreen extends AppCompatActivity {
         // pass login data to menu
         intent.putExtra("emails", emails);
         // pass login data to menu
-        startActivity(intent); // go to sell screen
+        startActivity(intent); // go to menu screen
 
         super.onBackPressed();
     }

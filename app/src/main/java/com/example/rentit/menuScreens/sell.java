@@ -15,8 +15,11 @@ import java.util.Objects;
 
 public class sell extends AppCompatActivity {
 
+    // buttons
     Button button;
     Button rent;
+
+    // login track
     String emails;
 
     @Override
@@ -37,33 +40,36 @@ public class sell extends AppCompatActivity {
 
         setContentView(R.layout.activity_sell);
 
-
+        // sell free button
         button = findViewById(R.id.sell_free);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(sell.this , sellFreeScreen.class);
-                // pass login data to menu
+                // pass login data
                 intent.putExtra("emails" ,emails);
-                // pass login data to menu
-                startActivity(intent); // go to buy screen
+                // pass login data
+                startActivity(intent); // go to sell free screen
 
             }
         });
+        // sell free button
 
 
+        // rent item button
         rent = findViewById(R.id.sell_rent);
         rent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(sell.this , sellRentScreen.class);
-                // pass login data to menu
+                // pass login data
                 intent.putExtra("emails" ,emails);
-                // pass login data to menu
-                startActivity(intent); // go to buy screen
+                // pass login data
+                startActivity(intent); // go to rent item screen
 
             }
         });
+        // rent item button
     }
     public void onBackPressed() {
 
@@ -71,7 +77,7 @@ public class sell extends AppCompatActivity {
         // pass login data to menu
         intent.putExtra("emails", emails);
         // pass login data to menu
-        startActivity(intent); // go to sell screen
+        startActivity(intent); // go to menu screen
 
         super.onBackPressed();
     }

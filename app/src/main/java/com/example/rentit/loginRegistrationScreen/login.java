@@ -77,15 +77,16 @@ public class login extends AppCompatActivity {
                   String user = username.getText().toString();
                   String password = pass.getText().toString();
 
-
                   // if pass and user box empty : show a message to fill all box
                   if(TextUtils.isEmpty(user) || TextUtils.isEmpty(password))
                       Toast.makeText(login.this, "Please! Fill Up All Field", Toast.LENGTH_SHORT).show();
 
                   else
                   {
+                      // Authentication : checking database with email and password
                       auth.signInWithEmailAndPassword(user,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                           @Override
+                          // authentication successful with database
                           public void onComplete(@NonNull Task<AuthResult> task) {
                               if(task.isSuccessful())
                               {

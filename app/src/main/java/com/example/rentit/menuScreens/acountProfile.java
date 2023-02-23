@@ -22,12 +22,15 @@ import java.util.Objects;
 
 public class acountProfile extends AppCompatActivity {
 
+    // Button for home
     MaterialButton home;
 
+    // account database
     TextView name, email, phone, location, password;
     FirebaseDatabase database;
     DatabaseReference databaseReference;
     String emails;
+    // account database
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +45,10 @@ public class acountProfile extends AppCompatActivity {
 
         setContentView(R.layout.activity_account_profile);
 
+        // login info passing
         Intent intent = getIntent();
         emails = intent.getStringExtra("emails");
+        // login info passing
 
         // home button
         home = findViewById(R.id.homeBut);
@@ -54,11 +59,12 @@ public class acountProfile extends AppCompatActivity {
                 // pass login data to menu
                 intent.putExtra("emails", emails);
                 // pass login data to menu
-                startActivity(intent); // go to sell screen
+                startActivity(intent); // go to menu screen
             }
         });
         // home button
 
+        // accessing database with emails
         name = findViewById(R.id.acc_user);
         email = findViewById(R.id.acc_email);
         phone = findViewById(R.id.acc_ph);
@@ -67,11 +73,17 @@ public class acountProfile extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         databaseReference = database.getReference("Users");
+        // location of where all user data are store
 
+        // access database reference's
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
+            // value to access an user from database
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                //check all user data and its child one by one
                 for (DataSnapshot ds : snapshot.getChildren()) {
+                    // stop where the tracked emails matched with database email
+                    // then show all email's parent's all child info
                     if (ds.child("email").getValue().equals(emails)) {
                         name.setText(ds.child("name").getValue(String.class));
                         email.setText(ds.child("email").getValue(String.class));
@@ -83,6 +95,7 @@ public class acountProfile extends AppCompatActivity {
                 }
 
             }
+            // accessing database with emails
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
@@ -94,13 +107,14 @@ public class acountProfile extends AppCompatActivity {
     }
 
     @Override
+    // move to menu class if back key pressed
     public void onBackPressed() {
 
         Intent intent = new Intent(acountProfile.this, menu.class);
         // pass login data to menu
         intent.putExtra("emails", emails);
         // pass login data to menu
-        startActivity(intent); // go to sell screen
+        startActivity(intent); // go to menu screen
 
         super.onBackPressed();
     }

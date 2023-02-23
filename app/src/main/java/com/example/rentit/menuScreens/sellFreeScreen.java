@@ -53,7 +53,9 @@ public class sellFreeScreen extends AppCompatActivity {
     Uri test;
     // product info and database
 
+    // tracking login info
     String emails;
+    // tracking login info
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,47 +75,52 @@ public class sellFreeScreen extends AppCompatActivity {
 
         setContentView(R.layout.activity_sell_free);
 
-        // image uploading and loading
+        // image uploading button
         upload = findViewById(R.id.upload);
         upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // open gallery on device
                 openImage();
                 //uploadImage();
+                //upload the select the image to firestore database
             }
         });
-        // image uploading and loading
+        // image uploading button
 
 
-        // posting info database
+        // posting info into database
         name = findViewById(R.id.sell_product_name);
         description = findViewById(R.id.sell_des);
         rating = findViewById(R.id.sell_rating);
         address = findViewById(R.id.sell_address);
         firebaseFirestore = FirebaseFirestore.getInstance();
 
+        // post button
         post = findViewById(R.id.upload2);
         post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    insertData();
+
+                // insert product info into database
+                insertData();
                 Intent intent = new Intent(sellFreeScreen.this , menu.class );
                 // pass login data to menu
                 intent.putExtra("emails" ,emails);
                 // pass login data to menu
-                startActivity(intent); // go to sell screen
+                startActivity(intent); // go to menu screen
             }
         });
+        // post button
         // posting info into database
-
-
 
     }
 
+    // insert given product information into free database
     private void insertData() {
 
 
-        // adding to database
+        // adding to Free Product database
         Map<String,String > items = new HashMap<>();
         items.put("name", name.getText().toString());
         items.put("description", description.getText().toString());
@@ -121,14 +128,20 @@ public class sellFreeScreen extends AppCompatActivity {
         items.put("address",address.getText().toString());
         items.put("image",test.toString());
 
+        // pushed data into free collection
         firebaseFirestore.collection("Free").add(items)
+                // if pushing successful show a message
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
                         Toast.makeText(sellFreeScreen.this,"Post Successful", Toast.LENGTH_SHORT).show();
                     }
                 });
-        //pushing status
+        // adding to Free Product database
+
+
+        //pushing status into user database
+        //product info int user status database
         Map<String,String > item = new HashMap<>();
         item.put("name", name.getText().toString());
         item.put("description", description.getText().toString());
@@ -138,10 +151,13 @@ public class sellFreeScreen extends AppCompatActivity {
         item.put("type","Free");
         item.put("head","Rented By You");
 
+        // pushing into database named based on user email
         firebaseFirestore.collection(emails).add(item);
+        //pushing status into user database
+        //product info int user status database
 
-        // adding to database
     }
+    // insert given product information into free database
 
     // Getting the image from gallery
     private void openImage() {
@@ -152,6 +168,8 @@ public class sellFreeScreen extends AppCompatActivity {
         startActivityForResult(intent,IMAGE_REQ);
         // request for image selection
     }
+
+
     // check if any request for image has come or not
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -160,6 +178,7 @@ public class sellFreeScreen extends AppCompatActivity {
         if(requestCode == IMAGE_REQ && resultCode == RESULT_OK)
         {
             imageUri = data.getData();
+            // get the selected image location from gallery
 
             // loading img to IMage view
             img = findViewById(R.id.item_img);
@@ -238,7 +257,7 @@ public class sellFreeScreen extends AppCompatActivity {
         // pass login data to menu
         intent.putExtra("emails", emails);
         // pass login data to menu
-        startActivity(intent); // go to sell screen
+        startActivity(intent); // go to menu screen
 
         super.onBackPressed();
     }

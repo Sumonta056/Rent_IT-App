@@ -32,14 +32,16 @@ public class buyScreen extends AppCompatActivity {
     // recycler View
     RecyclerView recyclerView;
     Context context;
-    // recyler  View
+    // recycler  View
 
     // database
     FirebaseFirestore firebaseFirestore;
     FirestoreRecyclerAdapter adapter;
     // database
 
+    // track login info
     String emails;
+    // track login info
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +68,7 @@ public class buyScreen extends AppCompatActivity {
 
         //Query
         // getting the data from database
+        // accessing the collection name "products " from database
         Query query = firebaseFirestore.collection("Products"); // collection name from database
 
         // database fetching starts
@@ -107,14 +110,14 @@ public class buyScreen extends AppCompatActivity {
                     public void onClick(View v) {
 
                         Intent intent = new Intent(getApplicationContext() , orderBuy.class);
-                        // passing data
+                        // passing data to order screen
                         intent.putExtra("emails" , emails);
                         intent.putExtra("name",model.getName());
                         intent.putExtra("description",model.getDescription());
                         intent.putExtra("rating",model.getRating());
                         intent.putExtra("price",model.getPrice());
                         intent.putExtra("image",imageUrl);
-                        // passing data
+                        // passing data to order screen
                         startActivity(intent);
                     }
                 });
@@ -166,7 +169,7 @@ public class buyScreen extends AppCompatActivity {
         // pass login data to menu
         intent.putExtra("emails", emails);
         // pass login data to menu
-        startActivity(intent); // go to sell screen
+        startActivity(intent); // go to menu screen
 
         super.onBackPressed();
     }

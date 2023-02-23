@@ -38,7 +38,9 @@ public class freeScreen extends AppCompatActivity {
     FirestoreRecyclerAdapter adapter;
     // database
 
+    // track login info
     String emails;
+    // track login info
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,32 +66,40 @@ public class freeScreen extends AppCompatActivity {
 
         //Query
         // getting the data from database
+        // accessing the collection name "free " from database
         Query query = firebaseFirestore.collection("Free"); // collection name from database
 
+        // database fetching starts
         FirestoreRecyclerOptions<Free> options = new FirestoreRecyclerOptions.Builder<Free>()
                 .setQuery(query, Free.class)
                 .build();
 
+        // firebase adapter for accessing data
         adapter = new FirestoreRecyclerAdapter<Free , freeScreen.FreeProductViewHolder>(options) {
             @NonNull
             @Override
             public freeScreen.FreeProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                // view base on layout free item xml
                 View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.free_items , parent,false);
                 return new freeScreen.FreeProductViewHolder(view);
             }
 
             @Override
+            // what to get from database
             protected void onBindViewHolder(@NonNull freeScreen.FreeProductViewHolder holder, int position, @NonNull Free model) {
 
+                // setting and getting information from database
                 holder.name.setText(model.getName());
                 holder.description.setText(model.getDescription());
                 holder.rating.setText(model.getRating());
                 holder.address.setText(model.getAddress());
+                // setting and getting information from database
 
-
+                // loading image from database
                 String img;
                 img = model.getImage();
                 Picasso.get().load(img).into(holder.image);
+                // loading image from database
 
                 // switch to next screen selecting any image
                 holder.image.setOnClickListener(new View.OnClickListener() {
@@ -97,26 +107,30 @@ public class freeScreen extends AppCompatActivity {
                     public void onClick(View v) {
 
                         Intent intent = new Intent(getApplicationContext() , orderFree.class);
-                        // passing data
+                        // passing data to order screen
                         intent.putExtra("emails" , emails);
                         intent.putExtra("name",model.getName());
                         intent.putExtra("description",model.getDescription());
                         intent.putExtra("rating",model.getRating());
                         intent.putExtra("address",model.getAddress());
                         intent.putExtra("image",img);
-                        // passing data
+                        // passing data to order screen
                         startActivity(intent);
                     }
                 });
                 // switch to next screen selecting any image
             }
         };
+        // database fetching done
 
+        // recycler View setting after accessing data
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
+        // recycler View setting after accessing data
     }
 
+    // getting the id's of recycle view items
     private class FreeProductViewHolder extends RecyclerView.ViewHolder {
         TextView name , description , rating, address;
         ImageView image ;
@@ -130,6 +144,7 @@ public class freeScreen extends AppCompatActivity {
             image = itemView.findViewById(R.id.free_image);
         }
     }
+    // faster execution
     @Override
     public void onStop() {
         super.onStop();
@@ -141,6 +156,7 @@ public class freeScreen extends AppCompatActivity {
         super.onStart();
         adapter.startListening();
     }
+    // faster execution
 
     public void onBackPressed() {
 
@@ -148,7 +164,7 @@ public class freeScreen extends AppCompatActivity {
         // pass login data to menu
         intent.putExtra("emails", emails);
         // pass login data to menu
-        startActivity(intent); // go to sell screen
+        startActivity(intent); // go to menu screen
 
         super.onBackPressed();
     }

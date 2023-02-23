@@ -35,7 +35,7 @@ public class registration extends AppCompatActivity {
     // database
     FirebaseAuth auth;
     FirebaseDatabase database;
-    EditText username ;
+    EditText username;
     EditText pass;
     EditText email;
     EditText address;
@@ -61,13 +61,16 @@ public class registration extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(registration.this , login.class );
+                Intent intent = new Intent(registration.this, login.class);
                 startActivity(intent);
             }
         });
         // back Button end
 
-        auth = FirebaseAuth.getInstance();
+
+        // pushing user information into database
+        // Registration Button starts
+        auth = FirebaseAuth.getInstance(); // get the desire database location
         database = FirebaseDatabase.getInstance();
         username = findViewById(R.id.username);
         pass = findViewById(R.id.pass);
@@ -89,37 +92,41 @@ public class registration extends AppCompatActivity {
                 String phone = ph.getText().toString();
 
                 // check all info given or not
-                if(TextUtils.isEmpty(user) || TextUtils.isEmpty(password)|| TextUtils.isEmpty(pasRe)|| TextUtils.isEmpty(emails)||TextUtils.isEmpty(adr)|TextUtils.isEmpty(phone))
+                if (TextUtils.isEmpty(user) || TextUtils.isEmpty(password) || TextUtils.isEmpty(pasRe) || TextUtils.isEmpty(emails) || TextUtils.isEmpty(adr) | TextUtils.isEmpty(phone))
                     Toast.makeText(registration.this, "Please! Fill Up All Information", Toast.LENGTH_SHORT).show();
 
-                else
-                {
+                else {
                     // check both pass and repass same or not
-                    if(password.equals(pasRe)) {
+                    if (password.equals(pasRe)) {
 
-                        auth.createUserWithEmailAndPassword(emails,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        // creating a account in authentication  with email and password just for login
+                        auth.createUserWithEmailAndPassword(emails, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                if(task.isSuccessful())
-                                {
-                                    UserModel userModel = new UserModel(user,emails,adr,password,phone);
+                                if (task.isSuccessful()) {
+                                    // creating another account with all information of registration
+                                    UserModel userModel = new UserModel(user, emails, adr, password, phone);
+                                    // generating a user id for registration
                                     String id = task.getResult().getUser().getUid();
                                     database.getReference().child("Users").child(id).setValue(userModel);
+                                    // adding info database
+                                    // pushing account id with info into user collection of database
+                                    // creating another account with all information of registration
 
+
+                                    // check registration successful or not
                                     Toast.makeText(registration.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(registration.this, login.class);
+                                    // move to registration to login class
                                     startActivity(intent);
-                                }
-                                else
-                                {
-                                    Toast.makeText(registration.this, "Registration Failed"+task.getException(), Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(registration.this, "Registration Failed" + task.getException(), Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
 
-                    }
-                    else
-                    {
+                    } else {
+                        // if password ana re password not match reset the registration screen
                         Toast.makeText(registration.this, "Password not matched", Toast.LENGTH_SHORT).show(); // mis match pass
                         Intent intent = new Intent(getApplicationContext(), registration.class);
                         startActivity(intent); // restart screen
@@ -132,7 +139,7 @@ public class registration extends AppCompatActivity {
 
         });
         // Registration Button ends
-
+        // pushing user information into database
 
     }
 }
