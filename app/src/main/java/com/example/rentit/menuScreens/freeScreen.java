@@ -16,7 +16,7 @@ import android.view.WindowManager;
 import android.widget.TextView;
 
 
-import com.example.rentit.order.orderFree;
+import com.example.rentit.orderScreens.orderFree;
 import com.example.rentit.R;
 import com.example.rentit.productsData.Free;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
@@ -160,11 +160,11 @@ public class freeScreen extends AppCompatActivity {
 
     public void onBackPressed() {
 
-        Intent intent = new Intent(freeScreen.this, menu.class);
-        // pass login data to menu
+        Intent intent = new Intent(freeScreen.this, menuScreen.class);
+        // pass login data to menuScreen
         intent.putExtra("emails", emails);
-        // pass login data to menu
-        startActivity(intent); // go to menu screen
+        // pass login data to menuScreen
+        startActivity(intent); // go to menuScreen screen
 
         super.onBackPressed();
     }

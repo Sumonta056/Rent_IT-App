@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/b13"
-    tools:context=".order.orderFree">
+    tools:context=".orderScreens.orderFree">
 
     <ImageView
         android:id="@+id/p_image2"

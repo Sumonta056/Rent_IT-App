@@ -16,8 +16,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.rentit.R;
-import com.example.rentit.menuScreens.menu;
-import com.example.rentit.screens.base;
+import com.example.rentit.menuScreens.menuScreen;
+import com.example.rentit.baseScreens.base;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
@@ -91,7 +91,7 @@ public class login extends AppCompatActivity {
                               if(task.isSuccessful())
                               {
                                   Toast.makeText(login.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                                  Intent intent = new Intent(login.this, menu.class);
+                                  Intent intent = new Intent(login.this, menuScreen.class);
                                   // pass login data
                                   intent.putExtra("emails" ,user);
                                   // pass login data

@@ -105,11 +105,11 @@ public class sellRentScreen extends AppCompatActivity {
             public void onClick(View v) {
                 // insert product info into database
                 insertData();
-                Intent intent = new Intent(sellRentScreen.this , menu.class );
-                // pass login data to menu
+                Intent intent = new Intent(sellRentScreen.this , menuScreen.class );
+                // pass login data to menuScreen
                 intent.putExtra("emails" ,emails);
-                // pass login data to menu
-                startActivity(intent); // go to menu screen
+                // pass login data to menuScreen
+                startActivity(intent); // go to menuScreen screen
             }
         });
         // post button
@@ -258,11 +258,11 @@ public class sellRentScreen extends AppCompatActivity {
 
     public void onBackPressed() {
 
-        Intent intent = new Intent(sellRentScreen.this, menu.class);
-        // pass login data to menu
+        Intent intent = new Intent(sellRentScreen.this, menuScreen.class);
+        // pass login data to menuScreen
         intent.putExtra("emails", emails);
-        // pass login data to menu
-        startActivity(intent); // go to menu screen
+        // pass login data to menuScreen
+        startActivity(intent); // go to menuScreen screen
 
         super.onBackPressed();
     }

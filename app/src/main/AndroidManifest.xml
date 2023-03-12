@@ -13,35 +13,35 @@
         android:theme="@style/Theme.RentIT"
         tools:targetApi="31">
         <activity
-            android:name=".order.status"
+            android:name=".orderScreens.status"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".order.deliveryFree"
+            android:name=".orderScreens.deliveryFree"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".order.orderFree"
+            android:name=".orderScreens.orderFree"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".order.deliverybuy"
+            android:name=".orderScreens.deliverybuy"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".order.orderBuy"
+            android:name=".orderScreens.orderBuy"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -62,14 +62,14 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".menuScreens.aboutUs"
+            android:name=".menuScreens.aboutScreen"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".menuScreens.acountProfile"
+            android:name=".menuScreens.acountSccreen"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -97,14 +97,14 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".screens.base"
+            android:name=".baseScreens.base"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".screens.intro"
+            android:name=".baseScreens.intro"
             android:exported="true">
 
             <!-- changed this part -->
@@ -126,7 +126,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".menuScreens.sell"
+            android:name=".menuScreens.sellBaseScreen"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -140,7 +140,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".menuScreens.menu"
+            android:name=".menuScreens.menuScreen"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

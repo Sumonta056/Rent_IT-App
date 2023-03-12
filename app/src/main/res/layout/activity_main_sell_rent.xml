@@ -9,15 +9,14 @@
 
     <ImageView
         android:id="@+id/rent_img"
-        android:layout_width="242dp"
-        android:layout_height="142dp"
+        android:layout_width="283dp"
+        android:layout_height="146dp"
         android:src="@drawable/load"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.177"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.272" />
+        app:layout_constraintVertical_bias="0.207" />
 
     <EditText
         android:id="@+id/rent_name"
@@ -145,8 +144,8 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="109dp"
-        android:layout_height="116dp"
+        android:layout_width="233dp"
+        android:layout_height="61dp"
         android:fontFamily="@font/opensans"
         android:gravity="center"
         android:text="Product Image"
@@ -155,8 +154,7 @@
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.85"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.272" />
+        app:layout_constraintVertical_bias="0.367" />
 </androidx.constraintlayout.widget.ConstraintLayout>

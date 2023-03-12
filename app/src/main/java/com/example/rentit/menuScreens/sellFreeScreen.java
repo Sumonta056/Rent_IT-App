@@ -104,11 +104,11 @@ public class sellFreeScreen extends AppCompatActivity {
 
                 // insert product info into database
                 insertData();
-                Intent intent = new Intent(sellFreeScreen.this , menu.class );
-                // pass login data to menu
+                Intent intent = new Intent(sellFreeScreen.this , menuScreen.class );
+                // pass login data to menuScreen
                 intent.putExtra("emails" ,emails);
-                // pass login data to menu
-                startActivity(intent); // go to menu screen
+                // pass login data to menuScreen
+                startActivity(intent); // go to menuScreen screen
             }
         });
         // post button
@@ -253,11 +253,11 @@ public class sellFreeScreen extends AppCompatActivity {
 
     public void onBackPressed() {
 
-        Intent intent = new Intent(sellFreeScreen.this, menu.class);
-        // pass login data to menu
+        Intent intent = new Intent(sellFreeScreen.this, menuScreen.class);
+        // pass login data to menuScreen
         intent.putExtra("emails", emails);
-        // pass login data to menu
-        startActivity(intent); // go to menu screen
+        // pass login data to menuScreen
+        startActivity(intent); // go to menuScreen screen
 
         super.onBackPressed();
     }

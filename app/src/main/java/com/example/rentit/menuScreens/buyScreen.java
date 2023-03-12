@@ -16,7 +16,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.rentit.order.orderBuy;
+import com.example.rentit.orderScreens.orderBuy;
 import com.example.rentit.R;
 import com.example.rentit.productsData.Products;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
@@ -165,11 +165,11 @@ public class buyScreen extends AppCompatActivity {
 
     public void onBackPressed() {
 
-        Intent intent = new Intent(buyScreen.this, menu.class);
-        // pass login data to menu
+        Intent intent = new Intent(buyScreen.this, menuScreen.class);
+        // pass login data to menuScreen
         intent.putExtra("emails", emails);
-        // pass login data to menu
-        startActivity(intent); // go to menu screen
+        // pass login data to menuScreen
+        startActivity(intent); // go to menuScreen screen
 
         super.onBackPressed();
     }

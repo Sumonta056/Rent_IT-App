@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/b8"
-    tools:context=".menuScreens.sell">
+    tools:context=".menuScreens.sellBaseScreen">
 
     <Button
         android:id="@+id/sell_rent"
@@ -26,7 +26,7 @@
         android:layout_width="263dp"
         android:layout_height="69dp"
         android:backgroundTint="#1F1347"
-        android:text="Give It for Free"
+        android:text="Give For Free"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"

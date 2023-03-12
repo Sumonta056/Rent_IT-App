@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/b10"
-    tools:context=".order.deliverybuy">
+    tools:context=".orderScreens.deliverybuy">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/homeBut2"

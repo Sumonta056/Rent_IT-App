@@ -4,20 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/b7"
+    android:background="@drawable/b25"
     tools:context=".menuScreens.sellFreeScreen">
 
     <ImageView
         android:id="@+id/item_img"
-        android:layout_width="221dp"
-        android:layout_height="147dp"
+        android:layout_width="258dp"
+        android:layout_height="185dp"
         android:src="@drawable/load"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.189"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.426" />
+        app:layout_constraintVertical_bias="0.26" />
 
     <EditText
         android:id="@+id/sell_product_name"
@@ -126,8 +125,8 @@
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="134dp"
-        android:layout_height="107dp"
+        android:layout_width="333dp"
+        android:layout_height="51dp"
         android:fontFamily="@font/opensans"
         android:gravity="center"
         android:text="Product Image"
@@ -136,9 +135,8 @@
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.898"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.431" />
+        app:layout_constraintVertical_bias="0.475" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
