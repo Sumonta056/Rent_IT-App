@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace 'com.example.rentit'
-    compileSdk 33
+    compileSdk 32
 
     defaultConfig {
         applicationId "com.example.rentit"
         minSdk 21
-        targetSdk 33
+        targetSdk 32
         versionCode 1
         versionName "1.0"
 
