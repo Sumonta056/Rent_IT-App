@@ -52,16 +52,7 @@ public class login extends AppCompatActivity {
 
         setContentView(R.layout.activity_login);
 
-        // back Button
-        move1 = findViewById(R.id.but2);
-        move1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(login.this , base.class );
-                startActivity(intent);
-            }
-        });
-        // back Button
+
 
         // login Button starts
         auth = FirebaseAuth.getInstance();

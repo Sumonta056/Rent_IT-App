@@ -12,13 +12,13 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="#ffffff"
-        android:padding="10dp">
+        android:padding="20dp">
 
 
         <ImageView
             android:id="@+id/image"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="230dp"
             android:src="@mipmap/sale"
             android:scaleType="centerCrop"
             app:riv_corner_radius="15dp"
@@ -28,7 +28,11 @@
             android:id="@+id/pop_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingTop="15dp"
             android:fontFamily="@font/opensans"
+            android:drawableLeft="@drawable/ic_baseline_local_grocery_store_24"
+            android:drawablePadding="10dp"
+            android:drawableTint="@color/black"
             android:text="Popular Products"
             android:textColor="@color/black"
             android:textSize="19sp" />
@@ -37,6 +41,9 @@
             android:id="@+id/pop_des"
             android:layout_width="190dp"
             android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:drawableLeft="@drawable/ic_baseline_info_241"
+            android:drawablePadding="10dp"
             android:ellipsize="end"
             android:textColor="@color/black"
             android:maxLines="1"
@@ -46,13 +53,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingTop="10dp">
 
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="30dp"
                 android:layout_margin="-5dp"
-
                 android:src="@drawable/rating" />
 
             <TextView
@@ -72,6 +79,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:drawableLeft="@drawable/ic_baseline_monetization_on_241"
+                android:drawablePadding="0dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/opensans"
                 android:gravity="end"

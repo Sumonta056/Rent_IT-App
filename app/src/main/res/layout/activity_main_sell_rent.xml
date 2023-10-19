@@ -4,19 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/b9"
+    android:background="#C1D8C3"
     tools:context=".menuScreens.sellRentScreen">
 
-    <ImageView
-        android:id="@+id/rent_img"
-        android:layout_width="283dp"
-        android:layout_height="146dp"
-        android:src="@drawable/load"
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:drawablePadding="10dp"
+        android:drawableTint="@color/black"
+        android:hint="Provide Product Information"
+        android:padding="10dp"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.207" />
+        app:layout_constraintVertical_bias="0.002" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="395dp"
+        android:layout_height="248dp"
+        android:layout_margin="5dp"
+        android:elevation="10dp"
+        app:cardCornerRadius="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.13">
+
+
+        <ImageView
+            android:id="@+id/rent_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/load" />
+
+    </androidx.cardview.widget.CardView>
 
     <EditText
         android:id="@+id/rent_name"
@@ -33,19 +66,20 @@
         android:textColorHint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.442" />
+        app:layout_constraintVertical_bias="0.45" />
 
     <EditText
-        android:id="@+id/rent_rating"
+        android:id="@+id/rent_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:background="@drawable/back"
-        android:drawableLeft="@drawable/ic_baseline_star_24"
+        android:drawableLeft="@drawable/ic_baseline_location_on_24"
         android:drawablePadding="10dp"
-        android:hint="Product Rating"
+        android:hint="PickUp Address"
         android:padding="20dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
@@ -53,25 +87,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.763" />
-
-    <EditText
-        android:id="@+id/rent_des"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:background="@drawable/back"
-        android:drawableLeft="@drawable/ic_baseline_info_24"
-        android:drawablePadding="10dp"
-        android:hint="Description"
-        android:padding="20dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.551" />
+        app:layout_constraintVertical_bias="0.85" />
 
     <EditText
         android:id="@+id/rent_price"
@@ -90,17 +106,68 @@
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.659" />
+        app:layout_constraintVertical_bias="0.65" />
+
+    <Button
+        android:id="@+id/post_it"
+        android:layout_width="166dp"
+        android:layout_height="60dp"
+        android:backgroundTint="#1F4172"
+        android:drawableLeft="@drawable/ic_baseline_signpost_24"
+        android:drawableTint="@color/white"
+        android:text="Post It"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.902"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.927" />
 
     <EditText
-        android:id="@+id/rent_address"
+        android:id="@+id/rent_des"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:background="@drawable/back"
-        android:drawableLeft="@drawable/ic_baseline_location_on_24"
+        android:drawableLeft="@drawable/ic_baseline_info_24"
         android:drawablePadding="10dp"
-        android:hint="PickUp Address"
+        android:hint="Description"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.55" />
+
+    <Button
+        android:id="@+id/select_img"
+        android:layout_width="187dp"
+        android:layout_height="60dp"
+        android:backgroundTint="#C70039"
+        android:drawableLeft="@drawable/ic_baseline_image_24"
+        android:drawableTint="@color/white"
+        android:text="Select Image"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.102"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.927" />
+
+    <EditText
+        android:id="@+id/rent_rating"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@drawable/back"
+        android:drawableLeft="@drawable/ic_baseline_star_24"
+        android:drawablePadding="10dp"
+        android:hint="Product Rating"
         android:padding="20dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
@@ -108,53 +175,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.872" />
+        app:layout_constraintVertical_bias="0.75" />
 
-    <Button
-        android:id="@+id/post_it"
-        android:layout_width="166dp"
-        android:layout_height="60dp"
-        android:backgroundTint="@color/black"
-        android:drawableLeft="@drawable/ic_baseline_signpost_24"
-        android:drawableTint="@color/white"
-        android:text="Post It"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.885"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.967" />
 
-    <Button
-        android:id="@+id/select_img"
-        android:layout_width="187dp"
-        android:layout_height="60dp"
-        android:backgroundTint="@color/black"
-        android:drawableLeft="@drawable/ic_baseline_image_24"
-        android:drawableTint="@color/white"
-        android:text="Select Image"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.084"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.969" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="233dp"
-        android:layout_height="61dp"
-        android:fontFamily="@font/opensans"
-        android:gravity="center"
-        android:text="Product Image"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.367" />
 </androidx.constraintlayout.widget.ConstraintLayout>

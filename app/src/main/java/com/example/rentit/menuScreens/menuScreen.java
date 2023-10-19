@@ -53,7 +53,7 @@ public class menuScreen extends AppCompatActivity {
         sell.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(menuScreen.this , sellBaseScreen.class );
+                Intent intent = new Intent(menuScreen.this ,sellRentScreen.class );
                 // pass login data to menuScreen
                 intent.putExtra("emails" ,emails);
                 // pass login data to menuScreen

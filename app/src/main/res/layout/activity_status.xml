@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/b2"
+    android:background="#C1D8C3"
     tools:context=".orderScreens.status">
 
     <TextView
@@ -14,7 +14,7 @@
         android:fontFamily="@font/opensans"
         android:gravity="center"
         android:padding="10dp"
-        android:text="My Order List"
+        android:text="Order List"
         android:textColor="@color/black"
         android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -22,12 +22,12 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.019" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/showProduct"
         android:layout_width="409dp"
-        android:layout_height="807dp"
+        android:layout_height="827dp"
         android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

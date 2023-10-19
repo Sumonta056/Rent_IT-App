@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/b2"
+    android:background="#C1D8C3"
     tools:context=".menuScreens.buyScreen">
 
     <androidx.recyclerview.widget.RecyclerView

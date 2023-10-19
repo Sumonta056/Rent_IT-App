@@ -19,11 +19,10 @@
         <ImageView
             android:id="@+id/free_image"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/sale"
+            android:layout_height="220dp"
             android:scaleType="centerCrop"
-            app:riv_corner_radius="15dp"
-            />
+            android:src="@mipmap/sale"
+            app:riv_corner_radius="15dp" />
 
         <TextView
             android:layout_width="match_parent"
