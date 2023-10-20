@@ -14,20 +14,6 @@
         android:background="#ffffff"
         android:padding="20dp">
 
-        <TextView
-            android:drawableLeft="@drawable/ic_baseline_category_24"
-            android:drawablePadding="10dp"
-            android:id="@+id/user_head"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/opensans"
-            android:text="Headline"
-            android:gravity="center"
-            android:padding="10dp"
-            android:textColor="#000000"
-            android:textSize="17dp" />
-
 
         <ImageView
             android:id="@+id/user_image"

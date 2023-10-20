@@ -3,14 +3,19 @@ package com.example.rentit.menuScreens;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
+import android.content.ClipData;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
 import com.example.rentit.R;
+import com.example.rentit.databinding.ActivityMenuBinding;
+import com.example.rentit.orderScreens.status;
 import com.google.android.material.button.MaterialButton;
 
 import java.util.Objects;
@@ -25,10 +30,13 @@ public class menuScreen extends AppCompatActivity {
     MaterialButton about;
     MaterialButton status;
     // buttons
-
     // data passing
     String emails;
     // data passing
+
+
+   ActivityMenuBinding binding;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,12 +49,58 @@ public class menuScreen extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN); //enable full screen
         // hide the title bar
 
-        setContentView(R.layout.activity_menu);
+        binding = ActivityMenuBinding.inflate(getLayoutInflater()) ;
+        setContentView(binding.getRoot());
 
         // login info passing
         Intent intents = getIntent();
         emails = intents.getStringExtra("emails");
         // login info passing
+
+
+        binding.navbottom.setOnItemSelectedListener(item1 ->{
+
+
+            switch (item1.getItemId()) {
+                case R.id.myorder:
+                    Intent intent = new Intent(menuScreen.this , com.example.rentit.orderScreens.status.class);
+                    // pass login data to menuScreen
+                    intent.putExtra("emails" ,emails);
+                    intent.putExtra("type" ,"rent");
+                    // pass login data to menuScreen
+                    startActivity(intent); // go to status screen
+                    break;
+
+
+                case R.id.mycart:
+                    Intent intent1 = new Intent(menuScreen.this , com.example.rentit.orderScreens.status.class);
+                    // pass login data to menuScreen
+                    intent1.putExtra("emails" ,emails);
+                    intent1.putExtra("type" ,"buy");
+                    // pass login data to menuScreen
+                    startActivity(intent1); // go to status screen
+                    break;
+
+                case R.id.profile:
+                    Intent intent2 = new Intent(menuScreen.this , acountSccreen.class);
+                    // pass login data to menuScreen
+                    intent2.putExtra("emails" ,emails);
+                    // pass login data to menuScreen
+                    startActivity(intent2); // go to status screen
+                    break;
+
+                case R.id.aboutUs:
+                    Intent intent3 = new Intent(menuScreen.this , aboutScreen.class);
+                    // pass login data to menuScreen
+                    intent3.putExtra("emails" ,emails);
+                    // pass login data to menuScreen
+                    startActivity(intent3); // go to status screen
+                    break;
+
+
+            }
+            return true;
+        } );
 
         // sellBaseScreen button
         sell = findViewById(R.id.sell);
@@ -70,6 +124,7 @@ public class menuScreen extends AppCompatActivity {
                 Intent intent = new Intent(menuScreen.this , buyScreen.class);
                 // pass login data to menuScreen
                 intent.putExtra("emails" ,emails);
+                intent.putExtra("type" ,"cart");
                 // pass login data to menuScreen
                 startActivity(intent); // go to buy screen
             }
@@ -90,50 +145,57 @@ public class menuScreen extends AppCompatActivity {
         });
         // free button
 
-        // account button
-        account = findViewById(R.id.account);
-        account.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(menuScreen.this , acountSccreen.class);
-                // pass login data to menuScreen
-                intent.putExtra("emails" ,emails);
-                // pass login data to menuScreen
-                startActivity(intent); // go to account screen
-            }
-        });
-        // account button
+//        // account button
+//        account = findViewById(R.id.account);
+//        account.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(menuScreen.this , acountSccreen.class);
+//                // pass login data to menuScreen
+//                intent.putExtra("emails" ,emails);
+//                // pass login data to menuScreen
+//                startActivity(intent); // go to account screen
+//            }
+//        });
+//        // account button
+//
+//        // about button
+//        about = findViewById(R.id.about);
+//        about.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(menuScreen.this , aboutScreen.class);
+//                // pass login data to menuScreen
+//                intent.putExtra("emails" ,emails);
+//                // pass login data to menuScreen
+//                startActivity(intent); // go to about screen
+//            }
+//        });
+//        // about button
+//
+//        // status button
+//
+//        status = findViewById(R.id.status);
+//        status.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(menuScreen.this , com.example.rentit.orderScreens.status.class);
+//                // pass login data to menuScreen
+//                intent.putExtra("emails" ,emails);
+//                // pass login data to menuScreen
+//                startActivity(intent); // go to status screen
+//            }
+//        });
+//
+//        // status button
 
-        // about button
-        about = findViewById(R.id.about);
-        about.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(menuScreen.this , aboutScreen.class);
-                // pass login data to menuScreen
-                intent.putExtra("emails" ,emails);
-                // pass login data to menuScreen
-                startActivity(intent); // go to about screen
-            }
-        });
-        // about button
 
-        // status button
-        status = findViewById(R.id.status);
-        status.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(menuScreen.this , com.example.rentit.orderScreens.status.class);
-                // pass login data to menuScreen
-                intent.putExtra("emails" ,emails);
-                // pass login data to menuScreen
-                startActivity(intent); // go to status screen
-            }
-        });
-        // status button
+
 
 
     }
+
+
 
     @Override
     // what to do back button press

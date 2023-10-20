@@ -39,6 +39,7 @@ public class status extends AppCompatActivity {
 
     // data passing
     String emails;
+    String type;
     // data passing
 
     @Override
@@ -55,6 +56,7 @@ public class status extends AppCompatActivity {
         // login info passing
         Intent intents = getIntent();
         emails = intents.getStringExtra("emails");
+        type = intents.getStringExtra("type");
         // login info passing
 
         setContentView(R.layout.activity_status);
@@ -65,7 +67,26 @@ public class status extends AppCompatActivity {
 
         //Query
         // getting the data from database
-        Query query = firebaseFirestore.collection(emails); // collection name from database
+        Query query = null;
+        if(type.equals("buy"))
+        {
+            query = firebaseFirestore.collection(emails)
+                    .whereEqualTo("head", "Bought By You"); // collection name from database
+            TextView textView = findViewById(R.id.textView10);
+            textView.setText("My Orders");
+            textView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_baseline_bookmark_added_24, 0, 0, 0);
+
+
+
+        }
+        else
+        {
+            query = firebaseFirestore.collection(emails)
+                    .whereEqualTo("head", "Rented By You"); // collection name from database
+            TextView textView = findViewById(R.id.textView10);
+            textView.setText("My Sales");
+            textView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_baseline_local_grocery_store_24, 0, 0, 0);
+        }
 
         FirestoreRecyclerOptions<UserProductTrack> options = new FirestoreRecyclerOptions.Builder<UserProductTrack>()
                 .setQuery(query, UserProductTrack.class)
@@ -85,7 +106,6 @@ public class status extends AppCompatActivity {
                 holder.name.setText(model.getName());
                 holder.description.setText(model.getDescription());
                 holder.rating.setText(model.getRating());
-                holder.head.setText(model.getHead());
                 holder.type.setText(model.getType());
                 holder.address.setText(model.getAddress());
 
@@ -112,7 +132,6 @@ public class status extends AppCompatActivity {
             name = itemView.findViewById(R.id.user_name);
             description = itemView.findViewById(R.id.user_des);
             rating = itemView.findViewById(R.id.user_rating);
-            head = itemView.findViewById(R.id.user_head);
             type = itemView.findViewById(R.id.user_type);
             address = itemView.findViewById(R.id.user_price_address);
             image = itemView.findViewById(R.id.user_image);
