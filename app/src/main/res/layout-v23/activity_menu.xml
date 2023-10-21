@@ -34,12 +34,30 @@
         android:src="@drawable/sale1" />
 
     <ImageView
+        android:id="@+id/image8"
+        android:layout_width="374dp"
+        android:layout_height="210dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/sales8"
+        />
+
+    <ImageView
         android:id="@+id/image1"
         android:layout_width="374dp"
        android:layout_height="210dp"
         android:scaleType="centerCrop"
         android:src="@drawable/sale2"
         />
+
+
+    <ImageView
+        android:id="@+id/image6"
+        android:layout_width="374dp"
+        android:layout_height="210dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/sales6"
+        />
+
 
     <ImageView
         android:id="@+id/imag2"
@@ -58,6 +76,14 @@
         />
 
     <ImageView
+        android:id="@+id/image9"
+        android:layout_width="374dp"
+        android:layout_height="210dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/sales9"
+        />
+
+    <ImageView
         android:id="@+id/image5"
         android:layout_width="374dp"
        android:layout_height="210dp"
@@ -65,37 +91,18 @@
         android:src="@drawable/sale5"
         />
 
-    <ImageView
-        android:id="@+id/image9"
-        android:layout_width="374dp"
-       android:layout_height="210dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/sales9"
-        />
 
-    <ImageView
-        android:id="@+id/image6"
-        android:layout_width="374dp"
-       android:layout_height="210dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/sales6"
-        />
+
 
     <ImageView
         android:id="@+id/image7"
         android:layout_width="374dp"
-       android:layout_height="210dp"
+        android:layout_height="210dp"
         android:scaleType="centerCrop"
         android:src="@drawable/sales7"
         />
 
-    <ImageView
-        android:id="@+id/image8"
-        android:layout_width="374dp"
-       android:layout_height="210dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/sales8"
-        />
+
 
 
 
@@ -244,7 +251,7 @@
         app:layout_constraintVertical_bias="0.527" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/noti"
         android:layout_width="42dp"
         android:layout_height="33dp"
         android:src="@drawable/notification"

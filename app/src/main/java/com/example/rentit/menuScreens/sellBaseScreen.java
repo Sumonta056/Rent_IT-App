@@ -38,38 +38,8 @@ public class sellBaseScreen extends AppCompatActivity {
         emails = intents.getStringExtra("emails");
         // login info passing
 
-        setContentView(R.layout.activity_sell);
+        setContentView(R.layout.activity_noti);
 
-        // sellBaseScreen free button
-        button = findViewById(R.id.sell_free);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(sellBaseScreen.this , sellFreeScreen.class);
-                // pass login data
-                intent.putExtra("emails" ,emails);
-                // pass login data
-                startActivity(intent); // go to sellBaseScreen free screen
-
-            }
-        });
-        // sellBaseScreen free button
-
-
-        // rent item button
-        rent = findViewById(R.id.sell_rent);
-        rent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(sellBaseScreen.this , sellRentScreen.class);
-                // pass login data
-                intent.putExtra("emails" ,emails);
-                // pass login data
-                startActivity(intent); // go to rent item screen
-
-            }
-        });
-        // rent item button
     }
     public void onBackPressed() {
 

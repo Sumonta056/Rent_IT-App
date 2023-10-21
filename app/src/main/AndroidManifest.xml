@@ -97,13 +97,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".baseScreens.base"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".baseScreens.intro"
             android:exported="true">
 

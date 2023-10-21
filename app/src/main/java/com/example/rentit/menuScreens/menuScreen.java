@@ -3,19 +3,18 @@ package com.example.rentit.menuScreens;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
-import android.content.ClipData;
+
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
+
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 
 import com.example.rentit.R;
 import com.example.rentit.databinding.ActivityMenuBinding;
-import com.example.rentit.orderScreens.status;
 import com.google.android.material.button.MaterialButton;
 
 import java.util.Objects;
@@ -29,9 +28,11 @@ public class menuScreen extends AppCompatActivity {
     MaterialButton account;
     MaterialButton about;
     MaterialButton status;
+    ImageView noti;
     // buttons
     // data passing
     String emails;
+    String type;
     // data passing
 
 
@@ -93,6 +94,7 @@ public class menuScreen extends AppCompatActivity {
                     Intent intent3 = new Intent(menuScreen.this , aboutScreen.class);
                     // pass login data to menuScreen
                     intent3.putExtra("emails" ,emails);
+                    intent3.putExtra("about" , type);
                     // pass login data to menuScreen
                     startActivity(intent3); // go to status screen
                     break;
@@ -114,6 +116,8 @@ public class menuScreen extends AppCompatActivity {
                 startActivity(intent); // go to sellBaseScreen screen
             }
         });
+
+
         // sellBaseScreen button
 
         // buy button
@@ -145,51 +149,18 @@ public class menuScreen extends AppCompatActivity {
         });
         // free button
 
-//        // account button
-//        account = findViewById(R.id.account);
-//        account.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(menuScreen.this , acountSccreen.class);
-//                // pass login data to menuScreen
-//                intent.putExtra("emails" ,emails);
-//                // pass login data to menuScreen
-//                startActivity(intent); // go to account screen
-//            }
-//        });
-//        // account button
-//
-//        // about button
-//        about = findViewById(R.id.about);
-//        about.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(menuScreen.this , aboutScreen.class);
-//                // pass login data to menuScreen
-//                intent.putExtra("emails" ,emails);
-//                // pass login data to menuScreen
-//                startActivity(intent); // go to about screen
-//            }
-//        });
-//        // about button
-//
-//        // status button
-//
-//        status = findViewById(R.id.status);
-//        status.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(menuScreen.this , com.example.rentit.orderScreens.status.class);
-//                // pass login data to menuScreen
-//                intent.putExtra("emails" ,emails);
-//                // pass login data to menuScreen
-//                startActivity(intent); // go to status screen
-//            }
-//        });
-//
-//        // status button
-
-
+        noti = findViewById(R.id.noti);
+        noti.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(menuScreen.this , sellBaseScreen.class );
+                // pass login data to menuScreen
+                intent.putExtra("emails" ,emails);
+                intent.putExtra("noti" ,type);
+                // pass login data to menuScreen
+                startActivity(intent); // go to sellBaseScreen screen
+            }
+        });
 
 
 
