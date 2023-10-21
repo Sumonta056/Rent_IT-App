@@ -10,7 +10,7 @@
    <pl.droidsonroids.gif.GifImageView
        android:layout_width="423dp"
        android:layout_height="884dp"
-       android:src="@drawable/i2"
+       android:src="@drawable/i3"
 
 
        app:layout_constraintBottom_toBottomOf="parent"

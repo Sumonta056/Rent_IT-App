@@ -12,7 +12,7 @@
         android:id="@+id/back2"
         android:layout_width="131dp"
         android:layout_height="63dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="56dp"
         android:background="#00ffffff"
         android:text="Back"
         android:textAllCaps="false"
@@ -21,6 +21,25 @@
         app:layout_constraintEnd_toEndOf="parent"
 
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_baseline_how_to_reg_24"
+        android:drawablePadding="10dp"
+        android:drawableTint="@color/black"
+        android:fontFamily="@font/opensans"
+        android:padding="10dp"
+        android:text="Registration"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.094" />
 
     <EditText
         android:id="@+id/username"
@@ -38,26 +57,40 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.47" />
+        app:layout_constraintVertical_bias="0.388" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/reg"
+        android:layout_width="190dp"
+        android:layout_height="52dp"
+        android:layout_margin="20dp"
+        android:backgroundTint="#005B41"
+        android:text="Registration"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.547"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.888" />
 
     <EditText
-        android:id="@+id/address"
+        android:id="@+id/passRe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:background="@drawable/back"
-        android:drawableLeft="@drawable/ic_baseline_location_on_24"
+        android:drawableLeft="@drawable/ic_baseline_lock_24"
         android:drawablePadding="10dp"
-        android:hint="Location"
+        android:hint="Re - Password"
         android:padding="20dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.67" />
+        app:layout_constraintVertical_bias="0.788" />
 
     <EditText
         android:id="@+id/pass"
@@ -73,61 +106,45 @@
         android:textColorHint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.77" />
+        app:layout_constraintVertical_bias="0.688" />
 
     <EditText
-        android:id="@+id/passRe"
+        android:id="@+id/nid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:layout_marginEnd="20dp"
         android:background="@drawable/back"
-        android:drawableLeft="@drawable/ic_baseline_lock_24"
+        android:drawableLeft="@drawable/ic_baseline_content_paste_search_24"
         android:drawablePadding="10dp"
-        android:hint="Re - Password"
+        android:hint="National ID Number"
         android:padding="20dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.87" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/reg"
-        android:layout_width="190dp"
-        android:layout_height="52dp"
-        android:layout_margin="20dp"
-        android:layout_marginTop="24dp"
-        android:backgroundTint="@color/black"
-        android:text="Registration"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passRe" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.188" />
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:background="@drawable/back"
-        android:drawableLeft="@drawable/ic_baseline_email_24"
+        android:drawableLeft="@drawable/ic_baseline_location_on_24"
         android:drawablePadding="10dp"
-        android:hint="Email Address"
+        android:hint="Location"
         android:padding="20dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.57" />
+        app:layout_constraintVertical_bias="0.588" />
 
     <EditText
         android:id="@+id/phone"
@@ -145,7 +162,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.37" />
+        app:layout_constraintVertical_bias="0.288" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@drawable/back"
+        android:drawableLeft="@drawable/ic_baseline_email_24"
+        android:drawablePadding="10dp"
+        android:hint="Email Address"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.488" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

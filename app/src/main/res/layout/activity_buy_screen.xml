@@ -21,11 +21,11 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:drawableLeft="@drawable/ic_baseline_local_grocery_store_24"
-        android:drawablePadding="1dp"
+        android:drawablePadding="10dp"
         android:drawableTint="@color/black"
         android:fontFamily="@font/opensans"
         android:gravity="center"
@@ -36,7 +36,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.001" />
+        app:layout_constraintVertical_bias="0.011" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

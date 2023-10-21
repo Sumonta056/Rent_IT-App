@@ -41,6 +41,7 @@ public class registration extends AppCompatActivity {
     EditText address;
     EditText repass;
     EditText ph;
+    EditText nid;
     // database
 
     @Override
@@ -58,6 +59,7 @@ public class registration extends AppCompatActivity {
 
         // back Button start
         back = findViewById(R.id.back2);
+
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,7 +68,6 @@ public class registration extends AppCompatActivity {
             }
         });
         // back Button end
-
 
         // pushing user information into database
         // Registration Button starts
@@ -78,6 +79,7 @@ public class registration extends AppCompatActivity {
         address = findViewById(R.id.address);
         repass = findViewById(R.id.passRe);
         ph = findViewById(R.id.phone);
+        nid = findViewById(R.id.nid);
         move2 = findViewById(R.id.reg);
 
         move2.setOnClickListener(new View.OnClickListener() {
@@ -90,9 +92,10 @@ public class registration extends AppCompatActivity {
                 String adr = address.getText().toString();
                 String pasRe = repass.getText().toString();
                 String phone = ph.getText().toString();
+                String nidID = nid.getText().toString();
 
                 // check all info given or not
-                if (TextUtils.isEmpty(user) || TextUtils.isEmpty(password) || TextUtils.isEmpty(pasRe) || TextUtils.isEmpty(emails) || TextUtils.isEmpty(adr) | TextUtils.isEmpty(phone))
+                if (TextUtils.isEmpty(user) || TextUtils.isEmpty(nidID) || TextUtils.isEmpty(password) || TextUtils.isEmpty(pasRe) || TextUtils.isEmpty(emails) || TextUtils.isEmpty(adr) | TextUtils.isEmpty(phone))
                     Toast.makeText(registration.this, "Please! Fill Up All Information", Toast.LENGTH_SHORT).show();
 
                 else {
@@ -105,7 +108,7 @@ public class registration extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     // creating another account with all information of registration
-                                    UserModel userModel = new UserModel(user, emails, adr, password, phone);
+                                    UserModel userModel = new UserModel(nidID, user, emails, adr, password, phone);
                                     // generating a user id for registration
                                     String id = task.getResult().getUser().getUid();
                                     database.getReference().child("Users").child(id).setValue(userModel);

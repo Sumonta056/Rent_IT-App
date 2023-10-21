@@ -1,23 +1,25 @@
 package com.example.rentit.regisrationData;
 
 public class UserModel {
-    String name ;
+    String name;
     String email;
     String address;
     String password;
     String phone;
+    String nidID;
 
-     public UserModel()
-     {
+    public UserModel() {
 
-     }
+    }
 
-    public UserModel(String name, String email, String address, String password, String phone) {
+    public UserModel( String nidID, String name, String email, String address, String password, String phone) {
+        this.nidID = nidID;
         this.name = name;
         this.email = email;
         this.address = address;
         this.password = password;
         this.phone = phone;
+
     }
 
     public String getName() {
@@ -50,6 +52,14 @@ public class UserModel {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getNidID() {
+        return nidID;
+    }
+
+    public void setNidID(String nidID) {
+        this.nidID = nidID;
     }
 
     public String getPhone() {

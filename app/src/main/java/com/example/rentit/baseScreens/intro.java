@@ -9,6 +9,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.example.rentit.R;
+import com.example.rentit.loginRegistrationScreen.login;
 
 import java.util.Objects;
 
@@ -31,7 +32,7 @@ public class intro extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(intro.this , base.class);
+                Intent intent = new Intent(intro.this , login.class);
                 startActivity(intent);
                 finish();
             }

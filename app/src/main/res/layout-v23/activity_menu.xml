@@ -92,17 +92,17 @@
 
     <ImageView
         android:id="@+id/image"
-        android:layout_width="370dp"
+        android:layout_width="374dp"
         android:layout_height="199dp"
         android:layout_margin="1dp"
         android:scaleType="centerCrop"
         android:src="@mipmap/sale"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintHorizontal_bias="0.46"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.326"
+        app:layout_constraintVertical_bias="0.328"
         app:riv_corner_radius="15dp" />
 
     <TextView
@@ -115,7 +115,7 @@
         android:textSize="13dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.098" />
@@ -239,25 +239,37 @@
         android:padding="10dp"
         android:text="Our Services"
         android:textColor="@color/black"
-        android:textSize="35dp"
+        android:textSize="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.535" />
+        app:layout_constraintVertical_bias="0.527" />
 
     <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="52dp"
-        android:layout_height="45dp"
+        android:id="@+id/imageView"
+        android:layout_width="42dp"
+        android:layout_height="33dp"
         android:src="@drawable/ic_baseline_notifications_active_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.912"
+        app:layout_constraintHorizontal_bias="0.921"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.047" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="40dp"
+        android:layout_height="31dp"
+        android:src="@drawable/ic_baseline_add_location_alt_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.808"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.048" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -280,11 +292,10 @@
         android:drawableLeft="@drawable/ic_baseline_search_24"
         android:drawablePadding="10dp"
         android:hint="Search what you like"
-        android:padding="18dp"
+        android:padding="14dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
-        android:textSize="18dp"
-        android:textStyle="italic"
+        android:textSize="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
