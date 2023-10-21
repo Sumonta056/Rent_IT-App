@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.rentit.R;
@@ -26,7 +27,8 @@ public class acountSccreen extends AppCompatActivity {
     MaterialButton home;
 
     // account database
-    TextView name, email, phone, location, password;
+    TextView name, email;
+    EditText phone, location, password;
     FirebaseDatabase database;
     DatabaseReference databaseReference;
     String emails;
@@ -89,7 +91,7 @@ public class acountSccreen extends AppCompatActivity {
                         email.setText(ds.child("email").getValue(String.class));
                         phone.setText(ds.child("phone").getValue(String.class));
                         location.setText(ds.child("address").getValue(String.class));
-                        password.setText(ds.child("password").getValue(String.class));
+                        password.setText(ds.child("nidID").getValue(String.class));
 
                     }
                 }
