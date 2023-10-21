@@ -9,20 +9,22 @@
 
     <TextView
 
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
+        android:drawableLeft="@drawable/ic_baseline_sell_24"
         android:drawablePadding="10dp"
         android:drawableTint="@color/black"
-        android:hint="Product Details"
+        android:fontFamily="@font/opensans"
+        android:hint="Product  Details"
         android:padding="10dp"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
-        android:textSize="27dp"
+        android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.002" />
@@ -60,9 +62,9 @@
         app:layout_constraintVertical_bias="0.979" />
 
     <androidx.cardview.widget.CardView
-        android:layout_width="395dp"
-        android:layout_height="248dp"
-        android:layout_margin="5dp"
+        android:layout_width="373dp"
+        android:layout_height="239dp"
+        android:layout_margin="10dp"
         android:elevation="10dp"
         app:cardCornerRadius="28dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -79,7 +81,7 @@
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
-            android:src="@drawable/load" />
+            android:src="@drawable/loadinggg" />
 
     </androidx.cardview.widget.CardView>
 
