@@ -3,13 +3,13 @@
 
 ## *------ **🏆 Our Achievement and Prizes in Different Competitions 🏆** ------*
 
-#### 🥇 1st Runner-up in Project Showcasing Competition in IEEE BUP FEST 2023**
+#### 🥇 1st Runner-up in Project Showcasing Competition in IEEE BUP FEST 2023
 
-#### 🎉 Top 5 in Idea competition in Mobile App, Game and Job Festival 2023 ( ICT Division, Govt. of Bangladesh ) **
+#### 🎉 Top 5 in Idea competition in Mobile App, Game and Job Festival 2023 ( ICT Division, Govt. of Bangladesh ) 
 
-#### ⭐ 7th position in Brain Station 23 Hackathon, Orbitax SUST SWE Technovent 2023" powered by DSi**
+#### ⭐ 7th position in Brain Station 23 Hackathon, Orbitax SUST SWE Technovent 2023" powered by DSi
 
-#### 🎁 Top 14 in TechTales - Software Project Showcasing, Cefalo ITVerse 2023: IIT, University of Dhaka**
+#### 🎁 Top 14 in TechTales - Software Project Showcasing, Cefalo ITVerse 2023: IIT, University of Dhaka
 
 
 <hr>
